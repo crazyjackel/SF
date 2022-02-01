@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.coffee.upm-git-extension": {
+      "version": "https://github.com/mob-sakai/UpmGitExtension.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "c5bd85b033ee9994cf7b4d711479e2602d42c639"
+    },
     "com.neuecc.unirx": {
       "version": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
       "depth": 0,
@@ -126,13 +133,13 @@
       "hash": "b5fac5bf9f9c4e95410982e119f90923068e1b29"
     },
     "io.crazyjackel.redmoon-reactivekit": {
-      "version": "https://github.com/crazyjackel/redmoon-reactiveKit.git",
+      "version": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.2",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ui": "1.0.0-preview.18"
       },
-      "hash": "eb2cedb475d96b08ab1f345359544c62ee2c126e"
+      "hash": "b10d3d649563d6a525830fad6c41a11b6fb3e09a"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

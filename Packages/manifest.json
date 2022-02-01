@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git",
     "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
     "com.sandolkakosdigital.unitypackagemanagerutilities": "https://github.com/sandolkakos/unity-package-manager-utilities.git",
     "com.unity.collab-proxy": "1.9.0",
@@ -12,7 +13,6 @@
     "com.unity.ugui": "1.0.0",
     "com.unity.ui.builder": "1.0.0-preview.18",
     "io.crazyjackel.redmoon-depinjector": "https://github.com/crazyjackel/redmoon-depInjector.git",
-    "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -43,6 +43,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.2"
   }
 }
