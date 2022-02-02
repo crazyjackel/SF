@@ -63,13 +63,13 @@ public class DragAndDrop : PointerManipulator
     {
         if (enabled && target.HasPointerCapture(evt.pointerId))
         {
-            target.transform.position = targetStartPosition;
-            target.ReleasePointer(evt.pointerId);
             using (var customEvt = EndDragEvent.GetPooled(evt))
             {
                 customEvt.element = target;
                 target.SendEvent(customEvt);
             }
+            target.transform.position = targetStartPosition;
+            target.ReleasePointer(evt.pointerId);
         }
     }
 }

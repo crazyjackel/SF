@@ -10,6 +10,6 @@ public class OverlayViewModel : ViewModel<OverlayViewModel>, IProvider
 {
     public ReactiveCommand<BeginDragEvent> OnBeginDrag { get; private set; } = new ReactiveCommand<BeginDragEvent>();
     public ReactiveCommand<OnDragEvent> OnDrag { get; private set; } = new ReactiveCommand<OnDragEvent>();
-    public ReactiveCommand<PointerDownEvent> OnEndDrag { get; private set; } = new ReactiveCommand<PointerDownEvent>();
+    public ReactiveCommand<EndDragEvent> OnEndDrag { get; private set; } = new ReactiveCommand<EndDragEvent>();
 
 }

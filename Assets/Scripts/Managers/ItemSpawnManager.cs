@@ -20,17 +20,18 @@ public class ItemSpawnManager : BaseManager
             overlayViewModel.OnEndDrag.Subscribe(ev => OnEndDrag(ev)).AddTo(overlayViewModelDisposable);
         }
     }
+
+    private void OnEndDrag(EndDragEvent ev)
+    {
+        var gameObject = Instantiate(prefab);
+        gameObject.transform.position = ev.position.ToScreenPoint();
+    }
+
     public override void ProviderRemoved(IProvider removeProvider)
     {
         if(DepInjector.UnmapProvider(removeProvider, ref overlayViewModel))
         {
             overlayViewModelDisposable.Dispose();
         }
-    }
-
-    private void OnEndDrag(PointerDownEvent ev)
-    {
-        var gameObject = Instantiate(prefab);
-        gameObject.transform.position = ev.position;
     }
 }
