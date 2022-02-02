@@ -2,18 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using RedMoon.ReactiveKit;
+using UniRx;
+using UnityEngine.UIElements;
+using RedMoon.Injector;
 
-public class OverlayViewModel : ViewModel<OverlayViewModel>
+public class OverlayViewModel : ViewModel<OverlayViewModel>, IProvider
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public ReactiveCommand<BeginDragEvent> OnBeginDrag { get; private set; } = new ReactiveCommand<BeginDragEvent>();
+    public ReactiveCommand<OnDragEvent> OnDrag { get; private set; } = new ReactiveCommand<OnDragEvent>();
+    public ReactiveCommand<EndDragEvent> OnEndDrag { get; private set; } = new ReactiveCommand<EndDragEvent>();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

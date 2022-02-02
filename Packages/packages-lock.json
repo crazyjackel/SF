@@ -126,20 +126,20 @@
       "url": "https://packages.unity.com"
     },
     "io.crazyjackel.redmoon-depinjector": {
-      "version": "https://github.com/crazyjackel/redmoon-depInjector.git",
+      "version": "https://github.com/crazyjackel/redmoon-depInjector.git#1.0.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "b5fac5bf9f9c4e95410982e119f90923068e1b29"
+      "hash": "ebca174e5a3707e309b356199d8b2f0ce46bc479"
     },
     "io.crazyjackel.redmoon-reactivekit": {
-      "version": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.2",
+      "version": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.4",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ui": "1.0.0-preview.18"
       },
-      "hash": "b10d3d649563d6a525830fad6c41a11b6fb3e09a"
+      "hash": "149f5f8e35096190818800327ec4eb26e7413ec9"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
