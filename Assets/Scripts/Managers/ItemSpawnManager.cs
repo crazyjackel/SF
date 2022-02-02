@@ -12,14 +12,6 @@ public class ItemSpawnManager : BaseManager
 
     private OverlayViewModel overlayViewModel;
     private CompositeDisposable overlayViewModelDisposable;
-    public override void NewProviderAvailable(IProvider newProvider)
-    {
-        if(DepInjector.MapProvider(newProvider, ref overlayViewModel))
-        {
-            overlayViewModelDisposable = new CompositeDisposable();
-            overlayViewModel.OnEndDrag.Subscribe(ev => OnEndDrag(ev)).AddTo(overlayViewModelDisposable);
-        }
-    }
 
     private void OnEndDrag(EndDragEvent ev)
     {
@@ -27,6 +19,24 @@ public class ItemSpawnManager : BaseManager
         gameObject.transform.position = ev.position.ToScreenPoint();
     }
 
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        overlayViewModelDisposable.Dispose();
+    }
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        overlayViewModelDisposable.Dispose();
+    }
+    public override void NewProviderAvailable(IProvider newProvider)
+    {
+        if (DepInjector.MapProvider(newProvider, ref overlayViewModel))
+        {
+            overlayViewModelDisposable = new CompositeDisposable();
+            overlayViewModel.OnEndDrag.Subscribe(ev => OnEndDrag(ev)).AddTo(overlayViewModelDisposable);
+        }
+    }
     public override void ProviderRemoved(IProvider removeProvider)
     {
         if(DepInjector.UnmapProvider(removeProvider, ref overlayViewModel))

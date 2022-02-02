@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class BaseManager : MonoBehaviour, IClient, IProvider
 {
-    private void OnEnable()
+    protected virtual void OnEnable()
     {
         DepInjector.AddProvider(this);
     }
-    private void OnDisable()
+    protected virtual void OnDisable()
     {
         DepInjector.Remove(this);
     }
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         DepInjector.Remove(this);
     }
