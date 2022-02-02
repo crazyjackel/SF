@@ -8,37 +8,36 @@
     border-bottom-color: rgb(75, 67, 53);
 }
 
-.unity-foldout__toggle>.unity-toggle__input>#unity-checkmark
-{   
+.unity-foldout__toggle > .unity-toggle__input > #unity-checkmark {
     width: 80%;
     height: 100%;
     background-image: url('/Assets/UI/Overlay/Toolbox.png');
-    -unity-background-image-tint-color: rgba(255,255,255,255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-.unity-foldout__toggle>.unity-toggle__input:checked>#unity-checkmark
-{
+
+.unity-foldout__toggle > .unity-toggle__input:checked > #unity-checkmark {
     background-image: url('/Assets/UI/Overlay/Toolbox_Open.png');
-    -unity-background-image-tint-color: rgba(255,255,255,255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-.unity-foldout__toggle:focus>.unity-toggle__input>#unity-checkmark
-{
+
+.unity-foldout__toggle:focus > .unity-toggle__input > #unity-checkmark {
     background-image: url('/Assets/UI/Overlay/Toolbox.png');
-    -unity-background-image-tint-color: rgba(255,255,255,255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-.unity-foldout__toggle:focus>.unity-toggle__input:checked>#unity-checkmark
-{
+
+.unity-foldout__toggle:focus > .unity-toggle__input:checked > #unity-checkmark {
     background-image: url('/Assets/UI/Overlay/Toolbox_Open.png');
-    -unity-background-image-tint-color: rgba(255,255,255,255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-.unity-foldout__toggle:active>.unity-toggle__input>#unity-checkmark
-{
+
+.unity-foldout__toggle:active > .unity-toggle__input > #unity-checkmark {
     background-image: url('/Assets/UI/Overlay/Toolbox.png');
-    -unity-background-image-tint-color: rgba(255,255,255,255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
-.unity-foldout__toggle:active>.unity-toggle__input:checked>#unity-checkmark
-{
+
+.unity-foldout__toggle:active > .unity-toggle__input:checked > #unity-checkmark {
     background-image: url('/Assets/UI/Overlay/Toolbox_Open.png');
-    -unity-background-image-tint-color: rgba(255,255,255,255);
+    -unity-background-image-tint-color: rgb(255, 255, 255);
 }
 
 .unity-foldout__content {
@@ -49,4 +48,28 @@
 .unity-button {
     font-size: 500%;
     flex-grow: 1;
+}
+
+.sf-drag {
+    flex-shrink: 0;
+    flex-grow: 1;
+    background-color: rgba(154, 143, 143, 255);
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.sf-dragContainer {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: stretch;
+    height: 100%;
+    flex-grow: 0;
+    flex-basis: auto;
+    justify-content: flex-start;
 }
