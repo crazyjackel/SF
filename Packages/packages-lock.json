@@ -133,13 +133,13 @@
       "hash": "ebca174e5a3707e309b356199d8b2f0ce46bc479"
     },
     "io.crazyjackel.redmoon-reactivekit": {
-      "version": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.4",
+      "version": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.5",
       "depth": 0,
       "source": "git",
       "dependencies": {
         "com.unity.ui": "1.0.0-preview.18"
       },
-      "hash": "149f5f8e35096190818800327ec4eb26e7413ec9"
+      "hash": "80fbcf847b3397dd68e21cc54e288d96265f9ee0"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

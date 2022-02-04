@@ -2,10 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToolInteractable : InteractableBehavior
+[RequireComponent(typeof(Collider2D))]
+public class ToolInteractable : InteractableBehavior<Tooltype>
 {
-    public override void Interact()
+    [SerializeField]
+    private InteractableBehavior deferInteraction;
+    [SerializeField]
+    private Tooltype matchingTooltype;
+    public override void Interact(Tooltype type)
     {
-        throw new System.NotImplementedException();
+        if(type == matchingTooltype || matchingTooltype == Tooltype.Any)
+        {
+            deferInteraction.Interact();
+        }
     }
 }
