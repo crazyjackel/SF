@@ -13,9 +13,11 @@ class TextureDragger : MouseManipulator
     protected bool moveY;
 
     private TileSeries Row;
-    public TextureDragger(TileSeries Row)
+    private TileSeries Column;
+    public TextureDragger(TileSeries Row, TileSeries Column)
     {
         this.Row = Row;
+        this.Column = Column;
         activators.Add(new ManipulatorActivationFilter { button = MouseButton.LeftMouse });
         m_Active = false;
     }
@@ -67,7 +69,7 @@ class TextureDragger : MouseManipulator
         if (isFirst)
         {
             isFirst = false;
-            if(Math.Abs(diff.x) > Math.Abs(diff.y))
+            if (Math.Abs(diff.x) > Math.Abs(diff.y))
             {
                 moveY = false;
             }
@@ -77,14 +79,13 @@ class TextureDragger : MouseManipulator
             }
         }
 
-        if (moveY)
+        if (moveY && Column != null)
         {
-
-            target.style.top = target.layout.y + diff.y;
+            Column.Offset.Value = Column.Offset.Value - diff.y;
         }
-        else
+        else if (Row != null)
         {
-            Row.Offset.Value = Row.Offset.Value - new Vector2(diff.x, 0);
+            Row.Offset.Value = Row.Offset.Value - diff.x;
         }
 
         e.StopPropagation();
@@ -98,7 +99,9 @@ class TextureDragger : MouseManipulator
             return;
 
         m_Active = false;
-        Row.Offset.Value = new Vector2(0, 0);
+        Row.Move(Mathf.RoundToInt(Row.AdjustedOffset.Value / TileSeries.tileSize));
+        if (Row != null) Row.Offset.Value = 0.0f;
+        if (Column != null) Column.Offset.Value = 0.0f;
         target.ReleaseMouse();
         e.StopPropagation();
     }

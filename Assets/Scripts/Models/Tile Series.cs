@@ -7,80 +7,120 @@ using System.Linq;
 
 public class TileSeries
 {
-    const int tileSize = 150;
+    public const int tileSize = 150;
 
     public List<Tile> Tiles { get; private set; }
 
     public IReadOnlyReactiveProperty<Texture2D> Texture2D { get; private set; }
-    public IReadOnlyReactiveProperty<Vector2> ClampedOffset { get; private set; }
-    public IReactiveProperty<Vector2> Offset { get; private set; }
+    public IReadOnlyReactiveProperty<float> AdjustedOffset { get; private set; }
+    public IReactiveProperty<float> Offset { get; private set; }
     public bool isRow { get; private set; }
+
+    private bool doMove;
 
     public TileSeries(List<Tile> tiles, bool isRow = false)
     {
         this.Tiles = tiles;
         this.isRow = isRow;
 
-        this.Texture2D = this.Tiles.Select(x => x.TileColor).CombineLatest().Select(x => MakeTexture2d(x)).ToReactiveProperty();
-        Offset = new ReactiveProperty<Vector2>(Vector2.zero);
-        this.ClampedOffset = Offset.Select(x => ClampVec(x)).ToReactiveProperty();
+        //Operation Order
+        //Grab Tile Colors
+        //Combine them all into an array of colors
+        //Only Continue the Sequence if doMove is true
+        //Generate a New Texture2D
+        //Make this a ReactiveProperty
+        doMove = true;
+        this.Texture2D = this.Tiles
+            .Select(x => x.TileColor)
+            .CombineLatest()
+            .Where((x, i) => doMove)
+            .Select(x => MakeTexture2d(x))
+            .ToReactiveProperty();
+
+        this.Offset = new ReactiveProperty<float>(0);
+
+        this.AdjustedOffset = Offset
+            .Select(x => Mathf.Clamp(x, 0, tileSize * Tiles.Count * 2))
+            .ToReactiveProperty();
 
         SetupTiles();
     }
 
-    private Vector2 ClampVec(Vector2 clamp)
-    {
-        float clampX = Mathf.Clamp(clamp.x, -tileSize * Tiles.Count, tileSize * Tiles.Count);
-        float clampY = Mathf.Clamp(clamp.y, -tileSize * Tiles.Count, tileSize * Tiles.Count);
-        return isRow ? new Vector2(clampX, clamp.x) : new Vector2(clamp.y, clampY);
-    }
 
+    public void Move(int positions)
+    {
+        doMove = false;
+        Color[] buffer = new Color[Tiles.Count];
+        for (int i = 0; i < Tiles.Count; i++)
+        {
+            var Tile = Tiles[mod(i + positions, Tiles.Count)];
+            buffer[i] = Tile.TileColor.Value;
+        }
+
+
+        for (int j = 0; j < Tiles.Count; j++)
+        {
+            if (j == Tiles.Count - 1) doMove = true;
+            var Tile = Tiles[j];
+            Tile.TileColor.Value = buffer[j];
+        }
+    }
+    private int mod(int x, int mod)
+    {
+        int r = x % mod;
+        return (r < 0) ? r + mod : r;
+    }
     private void SetupTiles()
     {
-        for(int i = 0; i < Tiles.Count; i++)
+        for (int i = 0; i < Tiles.Count; i++)
         {
             var tile = Tiles[i];
             tile.AddRow(this, i);
         }
     }
-
     public Texture2D MakeTexture2d(IList<Color> colors)
     {
         if (isRow)
         {
-            Texture2D returnTexture = new Texture2D(colors.Count, 1, TextureFormat.RGBA32, false)
+            Texture2D returnTexture = new Texture2D(colors.Count * 3, 1, TextureFormat.RGBA32, false)
             {
                 wrapMode = TextureWrapMode.Repeat,
                 filterMode = FilterMode.Point
             };
 
             var data = returnTexture.GetRawTextureData<Color32>();
-            for (int i = 0; i < colors.Count; i++)
+            for (int j = 0; j < 3; j++)
             {
-                data[i] = colors[i];
+                for (int i = 0; i < colors.Count; i++)
+                {
+                    data[colors.Count * j + i] = colors[i];
+                }
             }
 
             returnTexture.Apply();
-            TextureScaler.scale(returnTexture, tileSize * colors.Count, tileSize, FilterMode.Point);
+            TextureScaler.scale(returnTexture, tileSize * colors.Count * 3, tileSize, FilterMode.Point);
 
             return returnTexture;
         }
         else
         {
-            Texture2D returnTexture = new Texture2D(1, colors.Count, TextureFormat.RGBA32, false)
+            Texture2D returnTexture = new Texture2D(1, colors.Count * 3, TextureFormat.RGBA32, false)
             {
                 wrapMode = TextureWrapMode.Repeat,
                 filterMode = FilterMode.Point
             };
 
             var data = returnTexture.GetRawTextureData<Color32>();
-            for (int i = 0; i < colors.Count; i++)
+            for (int j = 0; j < 3; j++)
             {
-                data[i] = colors[i];
+                for (int i = 0; i < colors.Count; i++)
+                {
+                    data[colors.Count * j + i] = colors[i];
+                }
             }
 
             returnTexture.Apply();
-            TextureScaler.scale(returnTexture, tileSize, tileSize * colors.Count, FilterMode.Point);
+            TextureScaler.scale(returnTexture, tileSize, tileSize * colors.Count * 3, FilterMode.Point);
 
             return returnTexture;
         }
