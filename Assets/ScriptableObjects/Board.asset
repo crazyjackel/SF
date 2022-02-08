@@ -12,5 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
   m_Name: Board
   m_EditorClassIdentifier: 
-  width: 3
-  height: 3
+  width: 4
+  height: 4
+  rows:
+  - colors:
+    - {r: 1, g: 0, b: 0, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    - {r: 0.08960724, g: 1, b: 0, a: 1}
+    - {r: 0.4528302, g: 0, b: 0, a: 1}
+    Offset: {x: 0, y: 0}
+    ID: 0

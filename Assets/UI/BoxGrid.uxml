@@ -3,6 +3,6 @@
         <ui:VisualElement name="Body" style="flex-grow: 1; flex-direction: row; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: center;">
             <GallantGames.UI.AspectRatioPanel aspect-ratio-x="1" aspect-ratio-y="1" balance-x="50" name="Board" style="width: auto; height: auto; justify-content: space-around; align-items: stretch; flex-grow: 1; flex-direction: row;" />
         </ui:VisualElement>
-        <GallantGames.UI.AspectRatioPanel aspect-ratio-x="1" aspect-ratio-y="1" name="BoardOverlay" style="position: relative;" />
+        <GallantGames.UI.AspectRatioPanel aspect-ratio-x="1" aspect-ratio-y="1" name="BoardOverlay" picking-mode="Ignore" style="position: relative;" />
     </ui:VisualElement>
 </ui:UXML>

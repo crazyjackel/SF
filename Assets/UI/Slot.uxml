@@ -1,3 +1,5 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
-    <ui:VisualElement name="Slot" style="min-width: 150px; min-height: 150px; background-color: rgb(255, 0, 0);" />
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:ScrollView name="Slot" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" focusable="false" style="min-width: 150px; min-height: 150px; visibility: visible; overflow: visible;">
+        <ui:VisualElement name="SlotScroller" style="position: absolute; min-width: 150px; min-height: 150px; background-color: rgb(255, 255, 255); -unity-slice-left: 1; -unity-slice-top: 1; -unity-slice-right: 1; -unity-slice-bottom: 1;" />
+    </ui:ScrollView>
 </ui:UXML>
