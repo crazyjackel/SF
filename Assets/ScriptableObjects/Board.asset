@@ -22,3 +22,8 @@ MonoBehaviour:
     - {r: 0.4528302, g: 0, b: 0, a: 1}
     Offset: {x: 0, y: 0}
     ID: 0
+  - colors:
+    - {r: 1, g: 0, b: 0, a: 1}
+    - {r: 1, g: 1, b: 1, a: 1}
+    Offset: {x: 2, y: 1}
+    ID: 0

@@ -40,6 +40,7 @@ public class TileSeries
         this.Offset = new ReactiveProperty<float>(0);
 
         this.AdjustedOffset = Offset
+            .Select(x => x + tileSize * Tiles.Count)
             .Select(x => Mathf.Clamp(x, 0, tileSize * Tiles.Count * 2))
             .ToReactiveProperty();
 
