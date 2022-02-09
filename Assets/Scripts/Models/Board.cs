@@ -15,4 +15,9 @@ public class Board : ScriptableObject
     [SerializeField]
     private List<TileSeriesData> rows = new List<TileSeriesData>();
     public List<TileSeriesData> Rows => rows;
+
+
+    [SerializeField]
+    private List<TileSeriesData> cols = new List<TileSeriesData>();
+    public List<TileSeriesData> Cols => cols;
 }

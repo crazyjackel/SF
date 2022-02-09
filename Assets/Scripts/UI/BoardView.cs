@@ -39,12 +39,13 @@ public class BoardView : View<BoardViewModel>
         //Begin Filling out Tiles
         Tile[,] tiles = new Tile[board.Width, board.Height];
 
+        /*
         //Take Care of Rows
-        Dictionary<int, List<List<Tile>>> rowMerger = new Dictionary<int, List<List<Tile>>>();
+        Dictionary<int, List<HashSet<Tile>>> rowMerger = new Dictionary<int, List<HashSet<Tile>>>();
         foreach(var row in board.Rows)
         {
             //Create Tiles from Row Data
-            List<Tile> series_Tiles = new List<Tile>();
+            HashSet<Tile> series_Tiles = new HashSet<Tile>();
             for(int i = 0; i < row.colors.Count; i++)
             {
                 //Things to Update in Futre:
@@ -55,7 +56,7 @@ public class BoardView : View<BoardViewModel>
                 tiles[row.Offset.x + i, row.Offset.y] = tile;
             }
             //Make Sure ID Key Exists
-            if (!rowMerger.ContainsKey(row.ID)) rowMerger.Add(row.ID, new List<List<Tile>>());
+            if (!rowMerger.ContainsKey(row.ID)) rowMerger.Add(row.ID, new List<HashSet<Tile>>());
             rowMerger[row.ID].Add(series_Tiles);
         }
 
@@ -65,7 +66,10 @@ public class BoardView : View<BoardViewModel>
         {
             var list = rowMerger[key].SelectMany(d => d).ToList();
             rows.Add(new TileSeries(list, true));
-        }
+        }*/
+
+        List<TileSeries> Rows = GenerateTileSeries(tiles, board.Rows, true);
+        List<TileSeries> Columns = GenerateTileSeries(tiles, board.Cols, false);
 
         //bring it all together.
         for(int x = 0; x < tiles.GetLength(0); x++)
@@ -89,19 +93,59 @@ public class BoardView : View<BoardViewModel>
         }
 
     }
+    
+    public List<TileSeries> GenerateTileSeries(Tile[,] tiles, List<TileSeriesData> data, bool isRow = true)
+    {
+        //Take Care of Rows
+        Dictionary<int, List<HashSet<Tile>>> merger = new Dictionary<int, List<HashSet<Tile>>>();
+        foreach (var ele in data)
+        {
+            //Create Tiles from Row Data
+            HashSet<Tile> series_Tiles = new HashSet<Tile>();
+            for (int i = 0; i < ele.colors.Count; i++)
+            {
+                int OffsetX = ele.Offset.x;
+                int OffsetY = ele.Offset.y;
+                if (isRow) OffsetX += i;
+                else OffsetY += i;
+
+                if (OffsetX >= tiles.GetLength(0) || OffsetY >= tiles.GetLength(1)) continue;
+
+                //Things to Update in Futre:
+                //1. For Rows, tiles array should be set only once, if row is attempting to override skip row being added.
+                //2. Make sure i doesn't fall outside bounds
+                Tile tile = tiles[OffsetX, OffsetY] ?? new Tile(ele.colors[i]);
+                series_Tiles.Add(tile);
+                tiles[OffsetX, OffsetY] = tile;
+            }
+            //Make Sure ID Key Exists
+            if (!merger.ContainsKey(ele.ID)) merger.Add(ele.ID, new List<HashSet<Tile>>());
+            merger[ele.ID].Add(series_Tiles);
+        }
+
+        List<TileSeries> series = new List<TileSeries>();
+        //Generate Tile Series
+        foreach (var key in merger.Keys)
+        {
+            var list = merger[key].SelectMany(d => d).ToList();
+            series.Add(new TileSeries(list, isRow));
+        }
+        return series;
+    }
 
     public void BindVisualElementToBackground(Tile tile, VisualElement element, CompositeDisposable disposables)
     {
-        element.style.minWidth = tile.TileSprite.Value.texture.width;
-
         tile.TileSprite.Subscribe(x =>
         {
+            element.style.minWidth = x.texture.width;
+            element.style.minHeight = x.texture.height;
             element.style.backgroundImage = new StyleBackground(x);
         }).AddTo(disposables);
 
-        tile.RowOffset.Subscribe(x =>
+        tile.TileOffset.Subscribe(x =>
         {
-            element.style.left = -x;
-        }).AddTo(disposables);
+            element.style.left = -x.x;
+            element.style.top = -x.y;
+        });
     }
 }
