@@ -90,8 +90,8 @@ class TextureDragger : MouseManipulator
             return;
 
         m_Active = false;
-        if(moveY) Column?.MoveTiles(Mathf.RoundToInt(Column.AdjustedOffset.Value / TileSeries.tileSize));
-        else Row?.MoveTiles(Mathf.RoundToInt(Row.AdjustedOffset.Value / TileSeries.tileSize));
+        if(moveY) Column?.MoveTiles(Mathf.RoundToInt(Column.Offset.Value / TileSeries.tileSize));
+        else Row?.MoveTiles(Mathf.RoundToInt(Row.Offset.Value / TileSeries.tileSize));
         Row?.ResetOffset();
         Column?.ResetOffset();
         target.ReleaseMouse();

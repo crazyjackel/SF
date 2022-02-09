@@ -65,10 +65,10 @@ public class TileSeries
             buffer[i] = Tile.TileColor.Value;
         }
 
-
+        textureBufferBool = true;
         for (int j = 0; j < Tiles.Count; j++)
         {
-            if (j == Tiles.Count - 1) textureBufferBool = true;
+            //if (j == Tiles.Count - 1) textureBufferBool = true;
             var Tile = Tiles[j];
             Tile.TileColor.Value = buffer[j];
         }
