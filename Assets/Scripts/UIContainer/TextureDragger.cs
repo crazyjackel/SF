@@ -1,19 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UniRx;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 class TextureDragger : MouseManipulator
 {
     #region Init
-    private Vector2 m_Start;
     protected bool m_Active;
     protected bool isFirst;
     protected bool moveY;
 
+    private Vector2 m_Start;
     private TileSeries Row;
     private TileSeries Column;
+
+    private ReactiveProperty<Vector2> Batch;
     public TextureDragger(TileSeries Row, TileSeries Column)
     {
         this.Row = Row;
@@ -65,28 +69,15 @@ class TextureDragger : MouseManipulator
         if (!m_Active || !target.HasMouseCapture())
             return;
 
-        Vector2 diff = (e.localMousePosition - m_Start) / 30;
+        Vector2 diff = e.mouseDelta; 
         if (isFirst)
         {
             isFirst = false;
-            if (Math.Abs(diff.x) > Math.Abs(diff.y))
-            {
-                moveY = false;
-            }
-            else
-            {
-                moveY = true;
-            }
+            moveY = !(Math.Abs(diff.x) > Math.Abs(diff.y));
         }
 
-        if (moveY && Column != null)
-        {
-            Column.Offset.Value = Column.Offset.Value - diff.y;
-        }
-        else if (Row != null)
-        {
-            Row.Offset.Value = Row.Offset.Value - diff.x;
-        }
+        if (moveY) Column?.ChangeOffset(-diff.y);
+        else Row?.ChangeOffset(-diff.x);
 
         e.StopPropagation();
     }
@@ -99,9 +90,10 @@ class TextureDragger : MouseManipulator
             return;
 
         m_Active = false;
-        Row.Move(Mathf.RoundToInt(Row.AdjustedOffset.Value / TileSeries.tileSize));
-        if (Row != null) Row.Offset.Value = 0.0f;
-        if (Column != null) Column.Offset.Value = 0.0f;
+        if(moveY) Column?.MoveTiles(Mathf.RoundToInt(Column.Offset.Value / TileSeries.tileSize));
+        else Row?.MoveTiles(Mathf.RoundToInt(Row.Offset.Value / TileSeries.tileSize));
+        Row?.ResetOffset();
+        Column?.ResetOffset();
         target.ReleaseMouse();
         e.StopPropagation();
     }

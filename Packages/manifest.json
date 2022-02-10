@@ -44,6 +44,6 @@
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
     "io.crazyjackel.redmoon-depinjector": "https://github.com/crazyjackel/redmoon-depInjector.git#1.0.1",
-    "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.5"
+    "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.6"
   }
 }

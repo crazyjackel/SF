@@ -7,21 +7,20 @@ using System.Linq;
 
 public class TileSeries
 {
-    public const int tileSize = 150;
+    public const int tileSize = 125;
 
     public List<Tile> Tiles { get; private set; }
 
-    public IReadOnlyReactiveProperty<Texture2D> Texture2D { get; private set; }
+    public ReactiveProperty<Texture2D> Texture2D { get; private set; }
+    private IReadOnlyReactiveProperty<Texture2D> _Texture2D { get; set; }
     public IReadOnlyReactiveProperty<float> AdjustedOffset { get; private set; }
     public IReactiveProperty<float> Offset { get; private set; }
-    public bool isRow { get; private set; }
-
-    private bool doMove;
+    public bool IsRow { get; private set; }
 
     public TileSeries(List<Tile> tiles, bool isRow = false)
     {
         this.Tiles = tiles;
-        this.isRow = isRow;
+        this.IsRow = isRow;
 
         //Operation Order
         //Grab Tile Colors
@@ -29,13 +28,26 @@ public class TileSeries
         //Only Continue the Sequence if doMove is true
         //Generate a New Texture2D
         //Make this a ReactiveProperty
-        doMove = true;
-        this.Texture2D = this.Tiles
+        this._Texture2D = this.Tiles
             .Select(x => x.TileColor)
             .CombineLatest()
-            .Where((x, i) => doMove)
+            .DistinctUntilChanged()
             .Select(x => MakeTexture2d(x))
             .ToReactiveProperty();
+
+        this.Texture2D = new ReactiveProperty<Texture2D>(MakeTexture2d(this.Tiles.Select(x => x.TileColor.Value).ToList()));
+
+        this._Texture2D
+            .DistinctUntilChanged()
+            .Subscribe(x =>
+        {
+            Texture2D.SetValueAndForceNotify(x);
+        });
+
+        Texture2D.Subscribe(x =>
+        {
+            int y = 10;
+        });
 
         this.Offset = new ReactiveProperty<float>(0);
 
@@ -47,10 +59,17 @@ public class TileSeries
         SetupTiles();
     }
 
-
-    public void Move(int positions)
+    public void ChangeOffset(float val)
     {
-        doMove = false;
+        Offset.Value += val;
+    }
+
+    public void ResetOffset()
+    {
+        Offset.Value = 0;
+    }
+    public void MoveTiles(int positions)
+    {
         Color[] buffer = new Color[Tiles.Count];
         for (int i = 0; i < Tiles.Count; i++)
         {
@@ -58,10 +77,9 @@ public class TileSeries
             buffer[i] = Tile.TileColor.Value;
         }
 
-
         for (int j = 0; j < Tiles.Count; j++)
         {
-            if (j == Tiles.Count - 1) doMove = true;
+            //if (j == Tiles.Count - 1) textureBufferBool = true;
             var Tile = Tiles[j];
             Tile.TileColor.Value = buffer[j];
         }
@@ -76,12 +94,19 @@ public class TileSeries
         for (int i = 0; i < Tiles.Count; i++)
         {
             var tile = Tiles[i];
-            tile.AddRow(this, i);
+            if (IsRow)
+            {
+                tile.AddRow(this, i);
+            }
+            else
+            {
+                tile.AddColumn(this, i);
+            }
         }
     }
     public Texture2D MakeTexture2d(IList<Color> colors)
     {
-        if (isRow)
+        if (IsRow)
         {
             Texture2D returnTexture = new Texture2D(colors.Count * 3, 1, TextureFormat.RGBA32, false)
             {
@@ -116,7 +141,7 @@ public class TileSeries
             {
                 for (int i = 0; i < colors.Count; i++)
                 {
-                    data[colors.Count * j + i] = colors[i];
+                    data[colors.Count * j + i] = colors[colors.Count - i - 1];
                 }
             }
 
