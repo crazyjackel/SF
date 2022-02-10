@@ -79,12 +79,45 @@ public class BoardView : View<BoardViewModel>
                 var slot = slots[x, y];
                 var tile = tiles[x, y];
                 var background = slot.Q("SlotScroller");
+                var border = slot.Q("Border");
+                var up = slot.Q("Up");
+                var down = slot.Q("Down");
+                var left = slot.Q("Left");
+                var right = slot.Q("Right");
 
                 if(tile == null)
                 {
                     background.RemoveFromHierarchy();
+                    up.RemoveFromHierarchy();
+                    down.RemoveFromHierarchy();
+                    border.RemoveFromHierarchy();
+                    left.RemoveFromHierarchy();
+                    right.RemoveFromHierarchy();
                     continue;
                 }
+
+                if (tile.Column != null)
+                {
+                    up.BindCallback<ClickEvent>(x => tile.Column.MoveTiles(1)).AddTo(disposable);
+                    down.BindCallback<ClickEvent>(x => tile.Column.MoveTiles(-1)).AddTo(disposable);
+                }
+                else
+                {
+                    up.RemoveFromHierarchy();
+                    down.RemoveFromHierarchy();
+                }
+
+                if (tile.Row != null)
+                {
+                    right.BindCallback<ClickEvent>(x => tile.Row.MoveTiles(1)).AddTo(disposable);
+                    left.BindCallback<ClickEvent>(x => tile.Row.MoveTiles(-1)).AddTo(disposable);
+                }
+                else
+                {
+                    right.RemoveFromHierarchy();
+                    left.RemoveFromHierarchy();
+                }
+
 
                 background.AddManipulator(new TextureDragger(tile.Row, tile.Column));
                 BindVisualElementToBackground(tile, background, disposable);

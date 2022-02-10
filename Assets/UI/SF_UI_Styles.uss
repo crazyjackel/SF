@@ -90,3 +90,84 @@
     padding-top: 10px;
     padding-bottom: 10px;
 }
+
+.slot-scroller {
+    position: absolute;
+    min-width: 125px;
+    min-height: 125px;
+    background-color: rgb(255, 255, 255);
+    -unity-slice-left: 1;
+    -unity-slice-top: 1;
+    -unity-slice-right: 1;
+    -unity-slice-bottom: 1;
+}
+
+.slot {
+    min-width: 150px;
+    min-height: 150px;
+    visibility: visible;
+    overflow: visible;
+}
+
+.sf-button {
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: rgba(188, 188, 188, 0);
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 0;
+    border-bottom-width: 0;
+}
+
+.down {
+    position: absolute;
+    left: 25px;
+    top: 175px;
+    background-image: url('/Assets/UI/Overlay/DownArrow.png');
+}
+
+.up {
+    left: 25px;
+    position: absolute;
+    background-image: url('/Assets/UI/Overlay/UpArrow.png');
+}
+
+.slot-adjust {
+    left: 25px;
+    top: 25px;
+    position: relative;
+    min-width: 125px;
+    min-height: 125px;
+    align-items: flex-start;
+}
+
+.sf-button-horizontal {
+    max-height: 25px;
+    width: 150px;
+    height: 25px;
+}
+
+.sf-button-vertical {
+    width: 25px;
+    height: 150px;
+    max-width: 25px;
+}
+
+.left {
+    top: 25px;
+    background-image: url('/Assets/UI/Overlay/LeftArrow.png');
+    position: absolute;
+}
+
+.right {
+    position: absolute;
+    top: 25px;
+    left: 175px;
+    background-image: url('/Assets/UI/Overlay/RightArrow.png');
+}

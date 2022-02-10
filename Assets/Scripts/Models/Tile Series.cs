@@ -7,15 +7,15 @@ using System.Linq;
 
 public class TileSeries
 {
-    public const int tileSize = 150;
+    public const int tileSize = 125;
 
     public List<Tile> Tiles { get; private set; }
-    public IReadOnlyReactiveProperty<Texture2D> Texture2D { get; private set; }
+
+    public ReactiveProperty<Texture2D> Texture2D { get; private set; }
+    private IReadOnlyReactiveProperty<Texture2D> _Texture2D { get; set; }
     public IReadOnlyReactiveProperty<float> AdjustedOffset { get; private set; }
     public IReactiveProperty<float> Offset { get; private set; }
     public bool IsRow { get; private set; }
-
-    private bool textureBufferBool;
 
     public TileSeries(List<Tile> tiles, bool isRow = false)
     {
@@ -28,13 +28,26 @@ public class TileSeries
         //Only Continue the Sequence if doMove is true
         //Generate a New Texture2D
         //Make this a ReactiveProperty
-        textureBufferBool = true;
-        this.Texture2D = this.Tiles
+        this._Texture2D = this.Tiles
             .Select(x => x.TileColor)
             .CombineLatest()
-            .Where((x, i) => textureBufferBool)
+            .DistinctUntilChanged()
             .Select(x => MakeTexture2d(x))
             .ToReactiveProperty();
+
+        this.Texture2D = new ReactiveProperty<Texture2D>(MakeTexture2d(this.Tiles.Select(x => x.TileColor.Value).ToList()));
+
+        this._Texture2D
+            .DistinctUntilChanged()
+            .Subscribe(x =>
+        {
+            Texture2D.SetValueAndForceNotify(x);
+        });
+
+        Texture2D.Subscribe(x =>
+        {
+            int y = 10;
+        });
 
         this.Offset = new ReactiveProperty<float>(0);
 
@@ -57,7 +70,6 @@ public class TileSeries
     }
     public void MoveTiles(int positions)
     {
-        textureBufferBool = false;
         Color[] buffer = new Color[Tiles.Count];
         for (int i = 0; i < Tiles.Count; i++)
         {
@@ -65,7 +77,6 @@ public class TileSeries
             buffer[i] = Tile.TileColor.Value;
         }
 
-        textureBufferBool = true;
         for (int j = 0; j < Tiles.Count; j++)
         {
             //if (j == Tiles.Count - 1) textureBufferBool = true;
