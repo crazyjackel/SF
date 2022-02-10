@@ -109,8 +109,8 @@ public class BoardView : View<BoardViewModel>
 
                 if (tile.Row != null)
                 {
-                    right.BindCallback<ClickEvent>(x => tile.Row.MoveTiles(1)).AddTo(disposable);
-                    left.BindCallback<ClickEvent>(x => tile.Row.MoveTiles(-1)).AddTo(disposable);
+                    right.BindCallback<ClickEvent>(x => tile.Row.MoveTiles(-1)).AddTo(disposable);
+                    left.BindCallback<ClickEvent>(x => tile.Row.MoveTiles(1)).AddTo(disposable);
                 }
                 else
                 {
