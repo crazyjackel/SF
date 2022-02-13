@@ -29,11 +29,6 @@ public class Tile
         this.IsWinTile = isWinTile;
         this.TileColor = new ReactiveProperty<Color>(InitialColor);
         this.IsCorrectColor = TileColor.DistinctUntilChanged().Select(x => !IsWinTile || (x == InitialColor)).ToReactiveProperty();
-
-        this.TileColor.Subscribe(x =>
-        {
-            int y = 10;
-        });
     }
     public void AddColumn(TileSeries Column, int position)
     {

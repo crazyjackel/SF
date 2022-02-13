@@ -44,11 +44,6 @@ public class TileSeries
             Texture2D.SetValueAndForceNotify(x);
         });
 
-        Texture2D.Subscribe(x =>
-        {
-            int y = 10;
-        });
-
         this.Offset = new ReactiveProperty<float>(0);
 
         this.AdjustedOffset = Offset

@@ -147,7 +147,7 @@ public class BoardView : View<BoardViewModel>
                 //Things to Update in Futre:
                 //1. For Rows, tiles array should be set only once, if row is attempting to override skip row being added.
                 //2. Make sure i doesn't fall outside bounds
-                Tile tile = tiles[OffsetX, OffsetY] ?? new Tile(ele.colors[i]);
+                Tile tile = tiles[OffsetX, OffsetY] ?? new Tile(ele.colors[i].GetColor());
                 series_Tiles.Add(tile);
                 tiles[OffsetX, OffsetY] = tile;
             }
@@ -168,11 +168,11 @@ public class BoardView : View<BoardViewModel>
 
     public void BindVisualElementToBackground(Tile tile, VisualElement element, CompositeDisposable disposables)
     {
-        tile.TileSprite.Subscribe(x =>
+        tile.TileSprite.Subscribe(spr =>
         {
-            element.style.minWidth = x.texture.width;
-            element.style.minHeight = x.texture.height;
-            element.style.backgroundImage = new StyleBackground(x);
+            element.style.minWidth = spr.texture.width;
+            element.style.minHeight = spr.texture.height;
+            element.style.backgroundImage = new StyleBackground(Background.FromTexture2D(spr.texture));
         }).AddTo(disposables);
 
         tile.TileOffset.Subscribe(x =>

@@ -7,7 +7,7 @@ using UnityEngine;
 public class TileSeriesData 
 {
     [SerializeField]
-    public List<Color> colors;
+    public List<SmartColor> colors;
     [SerializeField]
     public Vector2Int Offset;
     [SerializeField]

@@ -1,17 +1,21 @@
 {
   "dependencies": {
+    "com.bewildered.core": "https://github.com/MechWarrior99/Bewildered-Core.git",
     "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git",
     "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
     "com.sandolkakosdigital.unitypackagemanagerutilities": "https://github.com/sandolkakos/unity-package-manager-utilities.git",
     "com.unity.collab-proxy": "1.9.0",
     "com.unity.ide.rider": "2.0.7",
-    "com.unity.ide.visualstudio": "2.0.11",
+    "com.unity.ide.visualstudio": "2.0.14",
     "com.unity.ide.vscode": "1.2.4",
     "com.unity.test-framework": "1.1.29",
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.4.8",
     "com.unity.ugui": "1.0.0",
     "com.unity.ui.builder": "1.0.0-preview.18",
+    "io.crazyjackel.redmoon-depinjector": "https://github.com/crazyjackel/redmoon-depInjector.git#1.0.1",
+    "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.6",
+    "io.crazyjackel.redmoon-smartables": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -42,8 +46,6 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0",
-    "io.crazyjackel.redmoon-depinjector": "https://github.com/crazyjackel/redmoon-depInjector.git#1.0.1",
-    "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.6"
+    "com.unity.modules.xr": "1.0.0"
   }
 }
