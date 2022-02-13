@@ -7,9 +7,8 @@ using UniRx;
 
 public class Tile
 {
-    public bool IsWinTile { get; private set; }
     public IReadOnlyReactiveProperty<bool> IsCorrectColor { get; private set; }
-    public ReactiveProperty<Color> TileColor { get; set; }
+    public ReactiveProperty<SmartColor> CurrentTileColor { get; set; }
 
     public IReadOnlyReactiveProperty<Sprite> TileSprite { get; private set; }
     public IReadOnlyReactiveProperty<Vector2> TileOffset { get; private set; }
@@ -23,12 +22,15 @@ public class Tile
     public TileSeries Column { get; private set; }
     public int RowPosition { get; private set; }
     public int ColPosition { get; private set; }
+    public bool IsWinTile { get; private set; }
+    public SmartColor InitialColor { get; private set; }
 
-    public Tile(Color InitialColor, bool isWinTile = false)
+    public Tile(SmartColor InitialColor, bool isWinTile = false)
     {
         this.IsWinTile = isWinTile;
-        this.TileColor = new ReactiveProperty<Color>(InitialColor);
-        this.IsCorrectColor = TileColor.DistinctUntilChanged().Select(x => !IsWinTile || (x == InitialColor)).ToReactiveProperty();
+        this.InitialColor = InitialColor;
+        this.CurrentTileColor = new ReactiveProperty<SmartColor>(InitialColor);
+        this.IsCorrectColor = CurrentTileColor.DistinctUntilChanged().Select(x => !IsWinTile || (x == InitialColor)).ToReactiveProperty();
     }
     public void AddColumn(TileSeries Column, int position)
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public static class UIHelper
 {
@@ -12,5 +13,13 @@ public static class UIHelper
         Vector2 vector2 = new Vector2(vector.x * camera.orthographicSize * camera.aspect, vector.y * camera.orthographicSize);
         Vector2 vector3 = vector2 + new Vector2(camera.transform.position.x, camera.transform.position.y);
         return vector3;
+    }
+
+    public static void SetBorderColor(this IStyle style, Color color)
+    {
+        style.borderBottomColor = color;
+        style.borderTopColor = color;
+        style.borderLeftColor = color;
+        style.borderRightColor = color;
     }
 }
