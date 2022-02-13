@@ -1,0 +1,15 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="SF_UI_Styles.uss" />
+    <ui:VisualElement style="width: 200px; height: 200px;">
+        <ui:Button display-tooltip-when-elided="true" name="Down" class="sf-button down sf-button-horizontal" />
+        <ui:Button display-tooltip-when-elided="true" name="Left" class="sf-button sf-button-vertical left" />
+        <ui:Button display-tooltip-when-elided="true" name="Right" class="sf-button sf-button-vertical right" />
+        <ui:VisualElement style="align-items: flex-start; justify-content: flex-start; left: 12.5px; top: 12.5px; border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0);">
+            <ui:VisualElement name="Border" tabindex="1" style="min-width: 150px; min-height: 150px; position: absolute; max-height: 150px; max-width: 150px; left: 12.5px; top: 12.5px; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);" />
+            <ui:ScrollView name="Slot" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="Hidden" focusable="false" scroll-deceleration-rate="0" touch-scroll-type="Clamped" elasticity="0" vertical-page-size="0" horizontal-page-size="0" class="slot slot-adjust" style="max-width: 125px; max-height: 125px;">
+                <ui:VisualElement name="SlotScroller" class="slot-scroller" />
+            </ui:ScrollView>
+        </ui:VisualElement>
+        <ui:Button display-tooltip-when-elided="true" name="Up" class="sf-button up sf-button-horizontal" />
+    </ui:VisualElement>
+</ui:UXML>

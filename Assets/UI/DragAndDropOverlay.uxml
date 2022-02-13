@@ -1,11 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="SF_UI_Styles.uss" />
-    <ui:VisualElement style="flex-direction: column-reverse; justify-content: flex-start; position: relative; top: auto; left: auto; bottom: auto; align-items: stretch; display: flex; overflow: visible; height: 100%;">
-        <ui:Foldout value="true" style="flex-direction: row; height: 20%; align-items: flex-start;">
-            <ui:VisualElement class="sf-dragContainer">
-                <ui:VisualElement class="sf-drag" />
-                <ui:VisualElement class="sf-drag" />
-                <ui:VisualElement class="sf-drag" />
+    <ui:VisualElement name="Container" style="flex-direction: column-reverse; justify-content: flex-start; position: relative; top: auto; left: auto; bottom: auto; align-items: stretch; display: flex; overflow: visible; height: 100%;">
+        <ui:Foldout value="true" name="Tool_Foldout" style="flex-direction: row; height: 20%; align-items: flex-start;">
+            <ui:VisualElement name="Icon_Container" class="sf-dragContainer" style="margin-right: 10%;">
+                <ui:VisualElement name="Hammer" class="sf-drag">
+                    <ui:VisualElement name="Hammer_Sprite" class="sf-drag-item" style="background-image: url(&apos;/Assets/UI/Overlay/hammer.png&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Machette" class="sf-drag">
+                    <ui:VisualElement name="Machette_Sprite" class="sf-drag-item" style="background-image: url(&apos;/Assets/UI/Overlay/machette.png&apos;);" />
+                </ui:VisualElement>
+                <ui:VisualElement name="Cutter" class="sf-drag">
+                    <ui:VisualElement name="Cutter_Sprite" class="sf-drag-item" style="background-image: url(&apos;/Assets/UI/Overlay/cutter.png&apos;);" />
+                </ui:VisualElement>
             </ui:VisualElement>
         </ui:Foldout>
     </ui:VisualElement>
