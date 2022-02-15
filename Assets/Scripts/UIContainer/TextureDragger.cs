@@ -69,7 +69,7 @@ class TextureDragger : MouseManipulator
         if (!m_Active || !target.HasMouseCapture())
             return;
 
-        Vector2 diff = e.mouseDelta; 
+        Vector2 diff = e.mouseDelta * new Vector2(1,2.0f); 
         if (isFirst)
         {
             isFirst = false;

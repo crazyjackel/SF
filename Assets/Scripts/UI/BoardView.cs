@@ -52,8 +52,14 @@ public class BoardView : View<BoardViewModel>
 
                 viewModel.BindButtonToAxis(left, right, tile.Row).AddTo(disposable);
                 viewModel.BindButtonToAxis(up, down, tile.Column).AddTo(disposable);
-                viewModel.BindVisualElementToBackground(background, tile).AddTo(disposable);
+                viewModel.BindBackgroundToTile(background, tile).AddTo(disposable);
+                viewModel.BindBorderToTileSeries(background, border, tile).AddTo(disposable);
             }
         }
+
+        viewModel.IsInWinState.Subscribe(x =>
+        {
+            Debug.Log(x);
+        }).AddTo(disposable);
     }
 }

@@ -16,6 +16,9 @@ public class TileSeries
     public IReadOnlyReactiveProperty<float> AdjustedOffset { get; private set; }
     public IReadOnlyReactiveProperty<float> ClampedOffset { get; private set; }
     public IReactiveProperty<float> Offset { get; private set; }
+
+
+    public IReactiveProperty<(Tile,bool)> IsHover { get; set; }
     public bool IsRow { get; private set; }
 
     public TileSeries(List<Tile> tiles, bool isRow = false)
@@ -52,6 +55,8 @@ public class TileSeries
         this.AdjustedOffset = ClampedOffset
             .Select(x => x + tileSize * Tiles.Count)
             .ToReactiveProperty();
+
+        this.IsHover = new ReactiveProperty<(Tile, bool)>((null, false));
 
         SetupTiles();
     }

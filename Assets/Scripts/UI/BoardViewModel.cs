@@ -17,6 +17,8 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     private List<TileSeries> Rows;
     private List<TileSeries> Columns;
 
+    public IReadOnlyReactiveProperty<bool> IsInWinState { get; private set; }
+
     public VisualElement[,] LoadSlots(VisualElement element, VisualTreeAsset m_ItemColumnTemplate, VisualTreeAsset m_ItemSlotTemplate)
     {
         VisualElement[,]  slots = new VisualElement[board.Width, board.Height];
@@ -64,7 +66,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
 
                 if (OffsetX >= tiles.GetLength(0) || OffsetY >= tiles.GetLength(1)) continue;
 
-                Tile tile = tiles[OffsetX, OffsetY] ?? new Tile(ele.colors[i]);
+                Tile tile = tiles[OffsetX, OffsetY] ?? new Tile(ele.colors[i].color, ele.colors[i].isWinTile);
                 series_Tiles.Add(tile);
                 tiles[OffsetX, OffsetY] = tile;
             }
@@ -98,7 +100,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         }
         return disp;
     }
-    public IDisposable BindVisualElementToBackground(VisualElement element, Tile tile)
+    public IDisposable BindBackgroundToTile(VisualElement element, Tile tile)
     {
         CompositeDisposable disposables = new CompositeDisposable();
         if (tile == null || element == null) return disposables;
@@ -121,6 +123,43 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         return disposables;
     }
 
+    public IDisposable BindBorderToTileSeries(VisualElement element, VisualElement border, Tile tile)
+    {
+        CompositeDisposable disp = new CompositeDisposable();
+
+        var row = tile.Row;
+        if (row != null)
+        {
+            element.BindCallback<MouseEnterEvent>(x => row.IsHover.Value = (tile,true)).AddTo(disp);
+            element.BindCallback<MouseLeaveEvent>(x => row.IsHover.Value = (tile,false)).AddTo(disp);
+
+            row.IsHover.Subscribe(x =>
+            {
+                if (tile == x.Item1) return;
+                Color color = x.Item2 ? new Color(1, 1, 0, 0.9f) : new Color(0, 0, 0, 0);
+                border.style.backgroundColor = color;
+            }).AddTo(disp);
+        }
+
+        var column = tile.Column;
+        if (column != null)
+        {
+            element.BindCallback<MouseEnterEvent>(x => column.IsHover.Value = (tile, true)).AddTo(disp);
+            element.BindCallback<MouseLeaveEvent>(x => column.IsHover.Value = (tile,false)).AddTo(disp);
+
+            column.IsHover.Subscribe(x =>
+            {
+                if (tile == x.Item1) return;
+                Color color = x.Item2 ? new Color(1, 0.5f, 0, 0.9f) : new Color(0, 0, 0, 0);
+                border.style.backgroundColor = color;
+            }).AddTo(disp);
+        }
+
+        
+
+        return disp;
+    }
+
     public override void OnInitialization()
     {
         base.OnInitialization();
@@ -133,5 +172,13 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         tiles = new Tile[board.Width, board.Height];
         Rows = GenerateTileSeries(tiles, board.Rows, true);
         Columns = GenerateTileSeries(tiles, board.Cols, false);
+
+        IsInWinState = tiles
+            .ToList()
+            .Where(x => x != null)
+            .Select(x => x.IsCorrectColor)
+            .CombineLatest()
+            .Select(x => x.All(x => x))
+            .ToReactiveProperty();
     }
 }
