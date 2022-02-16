@@ -21,7 +21,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
 
     public VisualElement[,] LoadSlots(VisualElement element, VisualTreeAsset m_ItemColumnTemplate, VisualTreeAsset m_ItemSlotTemplate)
     {
-        VisualElement[,]  slots = new VisualElement[board.Width, board.Height];
+        VisualElement[,] slots = new VisualElement[board.Width, board.Height];
         for (uint i = 0; i < board.Width; i++)
         {
             VisualElement VisualElement = m_ItemColumnTemplate.CloneTree();
@@ -128,34 +128,63 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         CompositeDisposable disp = new CompositeDisposable();
 
         var row = tile.Row;
+        var column = tile.Column;
+
         if (row != null)
         {
-            element.BindCallback<MouseEnterEvent>(x => row.IsHover.Value = (tile,true)).AddTo(disp);
-            element.BindCallback<MouseLeaveEvent>(x => row.IsHover.Value = (tile,false)).AddTo(disp);
-
-            row.IsHover.Subscribe(x =>
-            {
-                if (tile == x.Item1) return;
-                Color color = x.Item2 ? new Color(1, 1, 0, 0.9f) : new Color(0, 0, 0, 0);
-                border.style.backgroundColor = color;
-            }).AddTo(disp);
+            element.BindCallback<MouseEnterEvent>(x => row.IsHover.Value = new HoverInfo(tile, true)).AddTo(disp);
+            element.BindCallback<MouseLeaveEvent>(x => row.IsHover.Value = new HoverInfo(tile, false)).AddTo(disp);
         }
 
-        var column = tile.Column;
         if (column != null)
         {
-            element.BindCallback<MouseEnterEvent>(x => column.IsHover.Value = (tile, true)).AddTo(disp);
-            element.BindCallback<MouseLeaveEvent>(x => column.IsHover.Value = (tile,false)).AddTo(disp);
+            element.BindCallback<MouseEnterEvent>(x => column.IsHover.Value = new HoverInfo(tile, true)).AddTo(disp);
+            element.BindCallback<MouseLeaveEvent>(x => column.IsHover.Value = new HoverInfo(tile, false)).AddTo(disp);
+        }
 
+        if (row != null && column != null)
+        {
+            row.IsHover
+                .CombineLatest(column.IsHover, (x, y) => (x, y))
+                .Subscribe((x) =>
+                {
+                    var rowInfo = x.x;
+                    var colInfo = x.y;
+                    if ((rowInfo.isHovered && tile == rowInfo.selectedTile) || (colInfo.isHovered && tile == colInfo.selectedTile)) return;
+
+                    Color color =
+                          (rowInfo.isHovered && colInfo.isHovered) ? new Color(1, 1, 0, 1)
+                        : (rowInfo.isHovered) ? new Color(0.6f, 1, 0, 1)
+                        : (colInfo.isHovered) ? new Color(1, 0.6f, 0, 1)
+                        : new Color(0, 0, 0, 0);
+                    border.style.backgroundColor = color;
+                }).AddTo(disp);
+        }
+        else if (row != null)
+        {
+            row.IsHover.Subscribe(x =>
+            {
+                if (tile == x.selectedTile) return;
+                Color color = x.isHovered ? new Color(0.6f, 1, 0, 1) : new Color(0, 0, 0, 0);
+                border.style.backgroundColor = color;
+            }).AddTo(disp);
+        }
+        else if (column != null)
+        {
             column.IsHover.Subscribe(x =>
             {
-                if (tile == x.Item1) return;
-                Color color = x.Item2 ? new Color(1, 0.5f, 0, 0.9f) : new Color(0, 0, 0, 0);
+                if (tile == x.selectedTile) return;
+                Color color = x.isHovered ? new Color(1, 0.6f, 0, 1) : new Color(0, 0, 0, 0);
                 border.style.backgroundColor = color;
             }).AddTo(disp);
         }
 
-        
+
+
+
+
+
+
 
         return disp;
     }

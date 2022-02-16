@@ -5,6 +5,7 @@ using System;
 using UniRx;
 using System.Linq;
 
+
 public class TileSeries
 {
     public const int tileSize = 125;
@@ -18,7 +19,7 @@ public class TileSeries
     public IReactiveProperty<float> Offset { get; private set; }
 
 
-    public IReactiveProperty<(Tile,bool)> IsHover { get; set; }
+    public IReactiveProperty<HoverInfo> IsHover { get; set; }
     public bool IsRow { get; private set; }
 
     public TileSeries(List<Tile> tiles, bool isRow = false)
@@ -56,7 +57,7 @@ public class TileSeries
             .Select(x => x + tileSize * Tiles.Count)
             .ToReactiveProperty();
 
-        this.IsHover = new ReactiveProperty<(Tile, bool)>((null, false));
+        this.IsHover = new ReactiveProperty<HoverInfo>(new HoverInfo(null, false));
 
         SetupTiles();
     }
@@ -152,5 +153,18 @@ public class TileSeries
 
             return returnTexture;
         }
+    }
+}
+
+
+public class HoverInfo
+{
+    public Tile selectedTile { get; set; }
+    public bool isHovered { get; set; }
+
+    public HoverInfo(Tile tile, bool isHovered)
+    {
+        this.selectedTile = tile;
+        this.isHovered = isHovered;
     }
 }
