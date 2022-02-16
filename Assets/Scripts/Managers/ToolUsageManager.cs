@@ -7,6 +7,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using System.Linq;
 
+/*
 public class ToolUsageManager : BaseManager
 {
     public GameObject prefab;
@@ -75,3 +76,4 @@ public class ToolUsageManager : BaseManager
         }
     }
 }
+*/

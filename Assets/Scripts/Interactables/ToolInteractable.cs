@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
 [RequireComponent(typeof(Collider2D))]
 public class ToolInteractable : InteractableBehavior<Tooltype>
 {
@@ -16,4 +17,4 @@ public class ToolInteractable : InteractableBehavior<Tooltype>
             deferInteraction.Interact();
         }
     }
-}
+}*/

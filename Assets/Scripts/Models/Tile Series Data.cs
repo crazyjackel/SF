@@ -7,9 +7,18 @@ using UnityEngine;
 public class TileSeriesData 
 {
     [SerializeField]
-    public List<Color> colors;
+    public List<TileElement> colors;
     [SerializeField]
     public Vector2Int Offset;
     [SerializeField]
     public int ID;
+}
+
+[Serializable]
+public class TileElement
+{
+    [SerializeField]
+    public SmartColor color;
+    [SerializeField]
+    public bool isWinTile;
 }
