@@ -5,6 +5,7 @@ using System;
 using UniRx;
 using System.Linq;
 
+
 public class TileSeries
 {
     public const int tileSize = 125;
@@ -14,7 +15,11 @@ public class TileSeries
     public ReactiveProperty<Texture2D> Texture2D { get; private set; }
     private IReadOnlyReactiveProperty<Texture2D> _Texture2D { get; set; }
     public IReadOnlyReactiveProperty<float> AdjustedOffset { get; private set; }
+    public IReadOnlyReactiveProperty<float> ClampedOffset { get; private set; }
     public IReactiveProperty<float> Offset { get; private set; }
+
+
+    public IReactiveProperty<HoverInfo> IsHover { get; set; }
     public bool IsRow { get; private set; }
 
     public TileSeries(List<Tile> tiles, bool isRow = false)
@@ -29,13 +34,13 @@ public class TileSeries
         //Generate a New Texture2D
         //Make this a ReactiveProperty
         this._Texture2D = this.Tiles
-            .Select(x => x.TileColor)
+            .Select(x => x.CurrentTileColor)
             .CombineLatest()
             .DistinctUntilChanged()
             .Select(x => MakeTexture2d(x))
             .ToReactiveProperty();
 
-        this.Texture2D = new ReactiveProperty<Texture2D>(MakeTexture2d(this.Tiles.Select(x => x.TileColor.Value).ToList()));
+        this.Texture2D = new ReactiveProperty<Texture2D>(MakeTexture2d(this.Tiles.Select(x => x.CurrentTileColor.Value).ToList()));
 
         this._Texture2D
             .DistinctUntilChanged()
@@ -44,17 +49,15 @@ public class TileSeries
             Texture2D.SetValueAndForceNotify(x);
         });
 
-        Texture2D.Subscribe(x =>
-        {
-            int y = 10;
-        });
-
         this.Offset = new ReactiveProperty<float>(0);
 
-        this.AdjustedOffset = Offset
+        this.ClampedOffset = Offset.Select(x => Mathf.Clamp(x, -tileSize * Tiles.Count, tileSize * Tiles.Count)).ToReactiveProperty();
+
+        this.AdjustedOffset = ClampedOffset
             .Select(x => x + tileSize * Tiles.Count)
-            .Select(x => Mathf.Clamp(x, 0, tileSize * Tiles.Count * 2))
             .ToReactiveProperty();
+
+        this.IsHover = new ReactiveProperty<HoverInfo>(new HoverInfo(null, false));
 
         SetupTiles();
     }
@@ -70,18 +73,18 @@ public class TileSeries
     }
     public void MoveTiles(int positions)
     {
-        Color[] buffer = new Color[Tiles.Count];
+        SmartColor[] buffer = new SmartColor[Tiles.Count];
         for (int i = 0; i < Tiles.Count; i++)
         {
             var Tile = Tiles[mod(i + positions, Tiles.Count)];
-            buffer[i] = Tile.TileColor.Value;
+            buffer[i] = Tile.CurrentTileColor.Value;
         }
 
         for (int j = 0; j < Tiles.Count; j++)
         {
             //if (j == Tiles.Count - 1) textureBufferBool = true;
             var Tile = Tiles[j];
-            Tile.TileColor.Value = buffer[j];
+            Tile.CurrentTileColor.Value = buffer[j];
         }
     }
     private int mod(int x, int mod)
@@ -104,7 +107,7 @@ public class TileSeries
             }
         }
     }
-    public Texture2D MakeTexture2d(IList<Color> colors)
+    public Texture2D MakeTexture2d(IList<SmartColor> colors)
     {
         if (IsRow)
         {
@@ -119,7 +122,7 @@ public class TileSeries
             {
                 for (int i = 0; i < colors.Count; i++)
                 {
-                    data[colors.Count * j + i] = colors[i];
+                    data[colors.Count * j + i] = colors[i].GetColor();
                 }
             }
 
@@ -141,7 +144,7 @@ public class TileSeries
             {
                 for (int i = 0; i < colors.Count; i++)
                 {
-                    data[colors.Count * j + i] = colors[colors.Count - i - 1];
+                    data[colors.Count * j + i] = colors[colors.Count - i - 1].GetColor();
                 }
             }
 
@@ -150,5 +153,18 @@ public class TileSeries
 
             return returnTexture;
         }
+    }
+}
+
+
+public class HoverInfo
+{
+    public Tile selectedTile { get; set; }
+    public bool isHovered { get; set; }
+
+    public HoverInfo(Tile tile, bool isHovered)
+    {
+        this.selectedTile = tile;
+        this.isHovered = isHovered;
     }
 }
