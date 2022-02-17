@@ -18,7 +18,6 @@
     "com.unity.ui.builder": "1.0.0-preview.18",
     "io.crazyjackel.redmoon-depinjector": "https://github.com/crazyjackel/redmoon-depInjector.git#1.0.1",
     "io.crazyjackel.redmoon-reactivekit": "https://github.com/crazyjackel/redmoon-reactiveKit.git#1.0.6",
-    "io.crazyjackel.redmoon-smartables": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.1",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
@@ -49,6 +48,7 @@
     "com.unity.modules.video": "1.0.0",
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
-    "com.unity.modules.xr": "1.0.0"
+    "com.unity.modules.xr": "1.0.0",
+    "io.crazyjackel.redmoon-smartables": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.2"
   }
 }

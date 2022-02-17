@@ -39,7 +39,7 @@ public class BoardView : View<BoardViewModel>
                 var right = slot.Q<Button>("Right");
                 var border = slot.Q("Border");
 
-                if (!tile.InitialColor.Equals(SmartColor.Default))
+                if (tile.IsWinTile && !tile.InitialColor.Equals(SmartColor.Default))
                 {
                     if (border != null)
                     {

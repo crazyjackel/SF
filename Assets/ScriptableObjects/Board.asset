@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
   m_Name: Board
   m_EditorClassIdentifier: 
-  width: 4
+  width: 3
   height: 3
   rows:
   - colors:
@@ -34,7 +34,7 @@ MonoBehaviour:
     - color:
         _name: Red
         _value: 1
-      isWinTile: 1
+      isWinTile: 0
     - color:
         _name: Default
         _value: 0
@@ -61,3 +61,14 @@ MonoBehaviour:
       isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
+  moves:
+  - isRow: 0
+    id: 0
+    moves: 1
+  - isRow: 1
+    id: 0
+    moves: -1
+  - isRow: 0
+    id: 0
+    moves: -1
+  numberOfRandomMoves: 0

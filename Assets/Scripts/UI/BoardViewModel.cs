@@ -14,6 +14,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     private Board board;
 
     private Tile[,] tiles;
+    private List<TileSeries> TileSeries;
     private List<TileSeries> Rows;
     private List<TileSeries> Columns;
 
@@ -52,7 +53,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         //Add More Comments Explaining what is going on.
 
         //Take Care of Rows
-        Dictionary<int, List<HashSet<Tile>>> merger = new Dictionary<int, List<HashSet<Tile>>>();
+        Dictionary<uint, List<HashSet<Tile>>> merger = new Dictionary<uint, List<HashSet<Tile>>>();
         foreach (var ele in data)
         {
             //Create Tiles from Row Data
@@ -80,7 +81,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         foreach (var key in merger.Keys)
         {
             var list = merger[key].SelectMany(d => d).ToList();
-            series.Add(new TileSeries(list, isRow));
+            series.Add(new TileSeries(list, key, isRow));
         }
         return series;
     }
@@ -122,7 +123,6 @@ public class BoardViewModel : ViewModel<BoardViewModel>
 
         return disposables;
     }
-
     public IDisposable BindBorderToTileSeries(VisualElement element, VisualElement border, Tile tile)
     {
         CompositeDisposable disp = new CompositeDisposable();
@@ -179,13 +179,6 @@ public class BoardViewModel : ViewModel<BoardViewModel>
             }).AddTo(disp);
         }
 
-
-
-
-
-
-
-
         return disp;
     }
 
@@ -195,12 +188,34 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         LoadTiles();
     }
 
+    private void RandomizeBoardState()
+    {
+        foreach (var move in board.Moves)
+        {
+            var list = (move.isRow) ? Rows : Columns;
+            var series = list.FirstOrDefault(x => x.ID == move.id);
+            if (series == null) continue;
+            series.MoveTiles(move.moves);
+        }
+
+        for (int i = 0; i < board.NumberOfRandomMoves; i++) DoRandomMove();
+    }
+
+    private void DoRandomMove()
+    {
+        TileSeries randomTilesSeries = TileSeries.Random();
+        randomTilesSeries.MoveTiles(UnityEngine.Random.Range(0, randomTilesSeries.Count));
+    }
+
     private void LoadTiles()
     {
         //Begin Filling out Tiles
         tiles = new Tile[board.Width, board.Height];
         Rows = GenerateTileSeries(tiles, board.Rows, true);
         Columns = GenerateTileSeries(tiles, board.Cols, false);
+        TileSeries = Rows.Concat(Columns).ToList();
+
+        RandomizeBoardState();
 
         IsInWinState = tiles
             .ToList()
@@ -209,5 +224,10 @@ public class BoardViewModel : ViewModel<BoardViewModel>
             .CombineLatest()
             .Select(x => x.All(x => x))
             .ToReactiveProperty();
+
+        while (IsInWinState.Value == true)
+        {
+            DoRandomMove();
+        }
     }
 }
