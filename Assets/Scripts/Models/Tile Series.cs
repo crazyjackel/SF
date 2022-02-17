@@ -10,6 +10,8 @@ public class TileSeries
 {
     public const int tileSize = 125;
 
+    public uint ID { get; private set; }
+    public int Count => Tiles.Count;
     public List<Tile> Tiles { get; private set; }
 
     public ReactiveProperty<Texture2D> Texture2D { get; private set; }
@@ -22,11 +24,11 @@ public class TileSeries
     public IReactiveProperty<HoverInfo> IsHover { get; set; }
     public bool IsRow { get; private set; }
 
-    public TileSeries(List<Tile> tiles, bool isRow = false)
+    public TileSeries(List<Tile> tiles, uint id, bool isRow = false)
     {
         this.Tiles = tiles;
         this.IsRow = isRow;
-
+        this.ID = id;
         //Operation Order
         //Grab Tile Colors
         //Combine them all into an array of colors
