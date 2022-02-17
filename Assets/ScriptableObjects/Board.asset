@@ -17,17 +17,17 @@ MonoBehaviour:
   rows:
   - colors:
     - color:
+        _name: Default
+        _value: 0
+      isWinTile: 0
+    - color:
+        _name: Default
+        _value: 0
+      isWinTile: 0
+    - color:
         _name: Red
         _value: 1
       isWinTile: 1
-    - color:
-        _name: Default
-        _value: 0
-      isWinTile: 0
-    - color:
-        _name: Default
-        _value: 0
-      isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
   - colors:
@@ -40,11 +40,11 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     - color:
-        _name: Default
-        _value: 0
-      isWinTile: 0
+        _name: Red
+        _value: 1
+      isWinTile: 1
     Offset: {x: 0, y: 2}
-    ID: 0
+    ID: 1
   cols:
   - colors:
     - color:
@@ -61,14 +61,36 @@ MonoBehaviour:
       isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
+  - colors:
+    - color:
+        _name: Default
+        _value: 0
+      isWinTile: 0
+    - color:
+        _name: Default
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 2, y: 0}
+    ID: 1
+  - colors:
+    - color:
+        _name: Green
+        _value: 2
+      isWinTile: 1
+    - color:
+        _name: Default
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 1, y: 1}
+    ID: 1
   moves:
+  - isRow: 0
+    id: 1
+    moves: 2
+  - isRow: 1
+    id: 0
+    moves: 2
   - isRow: 0
     id: 0
     moves: 1
-  - isRow: 1
-    id: 0
-    moves: -1
-  - isRow: 0
-    id: 0
-    moves: -1
-  numberOfRandomMoves: 0
+  numberOfRandomMoves: 2
