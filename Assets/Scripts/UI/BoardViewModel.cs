@@ -6,6 +6,7 @@ using System.Linq;
 using UniRx;
 using UniRx.Operators;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 public class BoardViewModel : ViewModel<BoardViewModel>
@@ -190,6 +191,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         LoadNextLevelCommand.Subscribe(x =>
         {
             Debug.Log("Loading Next Level...");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
         });
         LoadTiles();
     }
