@@ -18,6 +18,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     private List<TileSeries> Rows;
     private List<TileSeries> Columns;
 
+    public IReactiveCommand<ClickEvent> LoadNextLevelCommand { get; private set; }
     public IReadOnlyReactiveProperty<bool> IsInWinState { get; private set; }
 
     public VisualElement[,] LoadSlots(VisualElement element, VisualTreeAsset m_ItemColumnTemplate, VisualTreeAsset m_ItemSlotTemplate)
@@ -185,6 +186,11 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     public override void OnInitialization()
     {
         base.OnInitialization();
+        LoadNextLevelCommand = new ReactiveCommand<ClickEvent>();
+        LoadNextLevelCommand.Subscribe(x =>
+        {
+            Debug.Log("Loading Next Level...");
+        });
         LoadTiles();
     }
 

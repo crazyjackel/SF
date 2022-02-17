@@ -171,3 +171,49 @@
     left: 175px;
     background-image: url('/Assets/UI/Overlay/RightArrow.png');
 }
+
+.sf-button-level-select {
+    font-size: 400%;
+    width: 70%;
+    height: auto;
+    border-left-color: rgb(57, 57, 57);
+    border-right-color: rgb(57, 57, 57);
+    border-top-color: rgb(57, 57, 57);
+    border-bottom-color: rgb(57, 57, 57);
+    background-color: rgb(97, 97, 97);
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    color: rgb(238, 238, 238);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.sf-button-level-select:hover{ 
+    background-color: rgb(110,110,110);
+}
+
+.sf-button-level-select:focus{
+    border-left-color: rgb(57, 57, 57);
+    border-right-color: rgb(57, 57, 57);
+    border-top-color: rgb(57, 57, 57);
+    border-bottom-color: rgb(57, 57, 57);
+}
+
+.sf-button-level-select:active{
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(57, 57, 57);
+    border-right-color: rgb(57, 57, 57);
+    border-top-color: rgb(57, 57, 57);
+    border-bottom-color: rgb(57, 57, 57);
+}
