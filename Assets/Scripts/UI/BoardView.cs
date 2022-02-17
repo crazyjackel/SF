@@ -5,6 +5,7 @@ using UniRx;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 public class BoardView : View<BoardViewModel>
 {
@@ -15,7 +16,16 @@ public class BoardView : View<BoardViewModel>
 
     public override void OnActivation(BoardViewModel viewModel, CompositeDisposable disposable)
     {
+        CompositeDisposable gameplayDisposable = new CompositeDisposable();
+
         VisualElement element = Root.Q("Board");
+
+        VisualElement overlay = Root.Q("Overlay");
+        overlay.style.display = DisplayStyle.None;
+
+        Button button = overlay.Q<Button>("NextButton");
+        button.BindClick(viewModel.LoadNextLevelCommand).AddTo(disposable);
+
 
         var slots = viewModel.LoadSlots(element, m_ItemColumnTemplate, m_ItemSlotTemplate);
 
@@ -39,7 +49,7 @@ public class BoardView : View<BoardViewModel>
                 var right = slot.Q<Button>("Right");
                 var border = slot.Q("Border");
 
-                if (!tile.InitialColor.Equals(SmartColor.Default))
+                if (tile.IsWinTile && !tile.InitialColor.Equals(SmartColor.Default))
                 {
                     if (border != null)
                     {
@@ -50,16 +60,24 @@ public class BoardView : View<BoardViewModel>
                     elements.Where(x => x != null).ForEach(x => x.style.unityBackgroundImageTintColor = tile.InitialColor.GetColor());
                 }
 
-                viewModel.BindButtonToAxis(left, right, tile.Row).AddTo(disposable);
-                viewModel.BindButtonToAxis(up, down, tile.Column).AddTo(disposable);
-                viewModel.BindBackgroundToTile(background, tile).AddTo(disposable);
-                viewModel.BindBorderToTileSeries(background, border, tile).AddTo(disposable);
+                viewModel.BindButtonToAxis(left, right, tile.Row).AddTo(gameplayDisposable);
+                viewModel.BindButtonToAxis(up, down, tile.Column).AddTo(gameplayDisposable);
+                viewModel.BindBackgroundToTile(background, tile).AddTo(gameplayDisposable);
+                viewModel.BindBorderToTileSeries(background, border, tile).AddTo(gameplayDisposable);
             }
         }
 
-        viewModel.IsInWinState.Subscribe(x =>
+        gameplayDisposable.AddTo(disposable);
+
+        viewModel.IsInWinState.Throttle(TimeSpan.FromMilliseconds(100)).Subscribe(x =>
         {
-            Debug.Log(x);
+            if (x)
+            {
+                gameplayDisposable.Dispose();
+                overlay.style.display = DisplayStyle.Flex;
+            }
+
+
         }).AddTo(disposable);
     }
 }

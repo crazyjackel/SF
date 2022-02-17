@@ -11,7 +11,7 @@ public class TileSeriesData
     [SerializeField]
     public Vector2Int Offset;
     [SerializeField]
-    public int ID;
+    public uint ID;
 }
 
 [Serializable]

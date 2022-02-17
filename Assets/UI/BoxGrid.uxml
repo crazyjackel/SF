@@ -1,8 +1,17 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="SF_UI_Styles.uss" />
     <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgb(29, 29, 29);">
         <ui:VisualElement name="Body" style="flex-grow: 1; flex-direction: row; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px; justify-content: center; align-items: center;">
             <GallantGames.UI.AspectRatioPanel aspect-ratio-x="1" aspect-ratio-y="1" balance-x="50" name="Board" style="width: auto; height: auto; justify-content: space-around; align-items: stretch; flex-grow: 1; flex-direction: row;" />
         </ui:VisualElement>
         <GallantGames.UI.AspectRatioPanel aspect-ratio-x="1" aspect-ratio-y="1" name="BoardOverlay" picking-mode="Ignore" style="position: relative;" />
+    </ui:VisualElement>
+    <ui:VisualElement name="Overlay" focusable="true" style="position: absolute; flex-grow: 0; width: 100%; height: 100%; background-image: none; align-items: center; justify-content: center; visibility: visible; display: flex;">
+        <ui:VisualElement style="width: 50%; height: 30%; align-items: center; justify-content: center; background-color: rgb(57, 57, 57); border-left-width: 0; border-right-width: 0; border-top-width: 0; border-bottom-width: 0; border-left-color: rgb(255, 0, 0); border-right-color: rgb(255, 0, 0); border-top-color: rgb(255, 0, 0); border-bottom-color: rgb(255, 0, 0);">
+            <ui:VisualElement picking-mode="Ignore" style="width: 70%; align-items: center;">
+                <ui:Label text="You Win" display-tooltip-when-elided="true" style="font-size: 100%; color: rgb(238, 238, 238);" />
+            </ui:VisualElement>
+            <ui:Button text="Back To Level Select" display-tooltip-when-elided="true" name="NextButton" focusable="true" class="sf-button-level-select" />
+        </ui:VisualElement>
     </ui:VisualElement>
 </ui:UXML>

@@ -9,6 +9,7 @@ public class SmartColor : SmartEnum<SmartColor>
 {
     public static readonly SmartColor Default = new SmartColor(nameof(Default), 0, Color.grey);
     public static readonly SmartColor Red = new SmartColor(nameof(Red), 1, Color.red);
+    public static readonly SmartColor Green = new SmartColor(nameof(Green), 2, Color.green);
 
 
     private Color _color;

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,4 +21,20 @@ public class Board : ScriptableObject
     [SerializeField]
     private List<TileSeriesData> cols = new List<TileSeriesData>();
     public List<TileSeriesData> Cols => cols;
+
+    [SerializeField]
+    private List<RandomMoveInstructions> moves = new List<RandomMoveInstructions>();
+    public List<RandomMoveInstructions> Moves => moves;
+
+    [SerializeField]
+    private uint numberOfRandomMoves = 0;
+    public uint NumberOfRandomMoves => numberOfRandomMoves;
+}
+
+[Serializable]
+public struct RandomMoveInstructions
+{
+    public bool isRow;
+    public uint id;
+    public int moves;
 }
