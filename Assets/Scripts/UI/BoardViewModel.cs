@@ -114,7 +114,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         {
             element.style.minWidth = spr.texture.width;
             element.style.minHeight = spr.texture.height;
-            element.style.backgroundImage = new StyleBackground(spr);
+            element.style.backgroundImage = new StyleBackground(spr.texture);
         }).AddTo(disposables);
 
         tile.TileOffset.Subscribe(x =>
