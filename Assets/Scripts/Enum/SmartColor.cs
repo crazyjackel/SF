@@ -15,7 +15,11 @@ public class SmartColor : SmartEnum<SmartColor>
     private Color _color;
     public Color GetColor() => _color;
 
-    public SmartColor() { }
+    protected override void ConstructEnum(SmartColor @enum)
+    {
+        this._color = @enum._color;
+    }
+
     public SmartColor(string name, int id, Color color) : base(name, id)
     {
         this._color = color;
