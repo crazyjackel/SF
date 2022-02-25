@@ -120,20 +120,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.purchasing": {
-      "version": "4.1.2",
-      "depth": 0,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0",
-        "com.unity.modules.unityanalytics": "1.0.0",
-        "com.unity.modules.unitywebrequest": "1.0.0",
-        "com.unity.modules.jsonserialize": "1.0.0",
-        "com.unity.modules.androidjni": "1.0.0",
-        "com.unity.services.core": "1.0.1"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.services.core": {
       "version": "1.0.1",
       "depth": 1,
@@ -235,11 +221,11 @@
       "hash": "bfadc563c547174d140df7d57d9e9ebc2ae9c46c"
     },
     "io.crazyjackel.redmoon-smartables": {
-      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.2",
+      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.4",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3ee84068ceb1291af2a3a8f148c00b68f58984df"
+      "hash": "2598e672bac979f6d400390254a1f517cfe90340"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

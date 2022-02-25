@@ -123,6 +123,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &243859565
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243859567}
+  - component: {fileID: 243859566}
+  m_Layer: 0
+  m_Name: PersistentDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &243859566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243859565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d8075bdc761cc4ab96af99935f84b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedBoard: {fileID: 0}
+  levels:
+    _serializedPairs:
+    - key: level1
+      value: {fileID: 11400000, guid: c2ed10e22c1ea4240a372d919f027233, type: 2}
+      isDuplicateKey: 0
+      index: 0
+    - key: level2
+      value: {fileID: 11400000, guid: c8d33bc1ec1d41649aa8632a11d16801, type: 2}
+      isDuplicateKey: 0
+      index: 1
+    - key: level3
+      value: {fileID: 11400000, guid: f9e65c07b9084f04280dfc933ad49ebc, type: 2}
+      isDuplicateKey: 0
+      index: 2
+--- !u!4 &243859567
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243859565}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.8582623, y: -0.975003, z: -6.409902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719649006
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +274,8 @@ GameObject:
   m_Component:
   - component: {fileID: 802656550}
   - component: {fileID: 802656549}
+  - component: {fileID: 802656552}
+  - component: {fileID: 802656551}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -253,3 +313,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802656551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802656548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48e3fefffb120864a8cf296884fd47e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  levelName: RubixTestScene
+--- !u!114 &802656552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802656548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8800517eb77d10f4fb582ebbf771934b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  document: {fileID: 802656549}
+  viewModel: {fileID: 802656551}
