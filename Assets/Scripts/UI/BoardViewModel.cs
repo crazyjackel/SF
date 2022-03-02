@@ -25,6 +25,13 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     public IReactiveCommand<ClickEvent> LoadNextLevelCommand { get; private set; }
     public IReadOnlyReactiveProperty<bool> IsInWinState { get; private set; }
 
+
+    public void LoadBackground(VisualElement element)
+    {
+        if (board.Background == null) return;
+
+        element.style.backgroundImage = board.Background;
+    }
     public VisualElement[,] LoadSlots(VisualElement element, VisualTreeAsset m_ItemColumnTemplate, VisualTreeAsset m_ItemSlotTemplate)
     {
         VisualElement[,] slots = new VisualElement[board.Width, board.Height];

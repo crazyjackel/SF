@@ -18,6 +18,9 @@ public class BoardView : View<BoardViewModel>
     {
         CompositeDisposable gameplayDisposable = new CompositeDisposable();
 
+        VisualElement containere = Root.Q("Container");
+        viewModel.LoadBackground(containere);
+
         VisualElement element = Root.Q("Board");
 
         VisualElement overlay = Root.Q("Overlay");
