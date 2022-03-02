@@ -7,6 +7,11 @@ using UnityEngine;
 public class Board : ScriptableObject
 {
     [SerializeField]
+    private Texture2D background;
+    public Texture2D Background => background;
+
+
+    [SerializeField]
     private uint width = 3;
     public uint Width => width;
     [SerializeField]
