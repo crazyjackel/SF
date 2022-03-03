@@ -22,7 +22,7 @@ public class DragMap : MonoBehaviour
 
     void Update()
     {
-        Scroll -= Input.mouseScrollDelta.y;
+        Scroll = Mathf.Clamp(Scroll - Input.mouseScrollDelta.y, 3 * ScrollInverseSpeed, 20 * ScrollInverseSpeed);
         if (Input.GetMouseButtonDown(1))
         {
             MouseStart = new Vector3(Input.mousePosition.x, Input.mousePosition.y, dist);
@@ -38,6 +38,6 @@ public class DragMap : MonoBehaviour
             transform.position = transform.position - (MouseMove - MouseStart);
         }
 
-        myCamera.orthographicSize = Mathf.Clamp(Scroll / ScrollInverseSpeed, 3, 20);
+        myCamera.orthographicSize = Scroll / ScrollInverseSpeed;
     }
 }
