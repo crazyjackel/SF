@@ -5456,6 +5456,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MouseStart: {x: 0, y: 0, z: 0}
+  Scroll: 0
+  ScrollInverseSpeed: 5
+  myCamera: {fileID: 691636217}
 --- !u!1 &831467846
 GameObject:
   m_ObjectHideFlags: 0
