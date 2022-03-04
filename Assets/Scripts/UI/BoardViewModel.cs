@@ -1,3 +1,4 @@
+using RedMoon.Injector;
 using RedMoon.ReactiveKit;
 using System;
 using System.Collections;
@@ -19,9 +20,18 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     private List<TileSeries> Rows;
     private List<TileSeries> Columns;
 
+    ReactiveProperty<PersistentDataManager> _pDataManager = new ReactiveProperty<PersistentDataManager>();
+
     public IReactiveCommand<ClickEvent> LoadNextLevelCommand { get; private set; }
     public IReadOnlyReactiveProperty<bool> IsInWinState { get; private set; }
 
+
+    public void LoadBackground(VisualElement element)
+    {
+        if (board.Background == null) return;
+
+        element.style.backgroundImage = board.Background;
+    }
     public VisualElement[,] LoadSlots(VisualElement element, VisualTreeAsset m_ItemColumnTemplate, VisualTreeAsset m_ItemSlotTemplate)
     {
         VisualElement[,] slots = new VisualElement[board.Width, board.Height];
@@ -114,7 +124,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         {
             element.style.minWidth = spr.texture.width;
             element.style.minHeight = spr.texture.height;
-            element.style.backgroundImage = new StyleBackground(spr);
+            element.style.backgroundImage = new StyleBackground(spr.texture);
         }).AddTo(disposables);
 
         tile.TileOffset.Subscribe(x =>
@@ -184,14 +194,20 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         return disp;
     }
 
+    public override bool CanInitialize()
+    {
+        return _pDataManager.HasValue;
+    }
+
     public override void OnInitialization()
     {
         base.OnInitialization();
+        board = _pDataManager.Value.selectedBoard;
         LoadNextLevelCommand = new ReactiveCommand<ClickEvent>();
         LoadNextLevelCommand.Subscribe(x =>
         {
             Debug.Log("Loading Next Level...");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name, LoadSceneMode.Single);
+            SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
         });
         LoadTiles();
     }
@@ -237,5 +253,10 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         {
             DoRandomMove();
         }
+    }
+
+    public override void NewProviderAvailable(IProvider newProvider)
+    {
+        DepInjector.MapProvider(newProvider, _pDataManager);
     }
 }

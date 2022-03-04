@@ -28,6 +28,12 @@
       "dependencies": {},
       "hash": "ed39e0470ffd50b3eeca4c8d01ea486e5427408e"
     },
+    "com.unity.2d.sprite": {
+      "version": "1.0.0",
+      "depth": 0,
+      "source": "builtin",
+      "dependencies": {}
+    },
     "com.unity.2d.tilemap": {
       "version": "1.0.0",
       "depth": 0,
@@ -46,11 +52,31 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.collab-proxy": {
-      "version": "1.9.0",
+    "com.unity.ads": {
+      "version": "3.7.5",
       "depth": 0,
       "source": "registry",
-      "dependencies": {},
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.analytics": {
+      "version": "3.6.12",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.collab-proxy": {
+      "version": "1.15.12",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.services.core": "1.0.1"
+      },
       "url": "https://packages.unity.com"
     },
     "com.unity.ext.nunit": {
@@ -91,6 +117,28 @@
       "source": "registry",
       "dependencies": {
         "com.unity.modules.physics": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.purchasing": {
+      "version": "3.2.2",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0",
+        "com.unity.modules.unityanalytics": "1.0.0",
+        "com.unity.modules.unitywebrequest": "1.0.0",
+        "com.unity.modules.jsonserialize": "1.0.0",
+        "com.unity.modules.androidjni": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.services.core": {
+      "version": "1.0.1",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.unitywebrequest": "1.0.0"
       },
       "url": "https://packages.unity.com"
     },
@@ -159,6 +207,16 @@
       "dependencies": {},
       "url": "https://packages.unity.com"
     },
+    "com.unity.xr.legacyinputhelpers": {
+      "version": "2.1.8",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.modules.vr": "1.0.0",
+        "com.unity.modules.xr": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
     "io.crazyjackel.redmoon-depinjector": {
       "version": "https://github.com/crazyjackel/redmoon-depInjector.git#1.0.1",
       "depth": 0,
@@ -176,11 +234,11 @@
       "hash": "bfadc563c547174d140df7d57d9e9ebc2ae9c46c"
     },
     "io.crazyjackel.redmoon-smartables": {
-      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.2",
+      "version": "https://github.com/crazyjackel/redmoon-smartables.git#main",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "3ee84068ceb1291af2a3a8f148c00b68f58984df"
+      "hash": "bd3be72cc8b4b047bde6d98e336b932f70f3f45f"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
