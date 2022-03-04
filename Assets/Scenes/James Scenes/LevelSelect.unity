@@ -152,7 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d8075bdc761cc4ab96af99935f84b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedBoard: {fileID: 0}
   levels:
     _serializedPairs:
     - key: level1
@@ -167,6 +166,14 @@ MonoBehaviour:
       value: {fileID: 11400000, guid: f9e65c07b9084f04280dfc933ad49ebc, type: 2}
       isDuplicateKey: 0
       index: 2
+    - key: level4
+      value: {fileID: 11400000, guid: c54f3f1123474a04e97c8a51898843b2, type: 2}
+      isDuplicateKey: 0
+      index: 3
+    - key: level5
+      value: {fileID: 11400000, guid: 3dbd992fa45f10840869c9f9caebfb1e, type: 2}
+      isDuplicateKey: 0
+      index: 4
 --- !u!4 &243859567
 Transform:
   m_ObjectHideFlags: 0
