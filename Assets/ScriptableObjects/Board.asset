@@ -14,45 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   background: {fileID: 2800000, guid: a03910c26e6349544aaebe3012146ced, type: 3}
   width: 3
-  height: 3
+  height: 1
   rows:
   - colors:
     - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
         _value: 1
       isWinTile: 1
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
-  - colors:
-    - color:
-        _value: 1
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 0, y: 2}
-    ID: 0
-  cols:
-  - colors:
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 0, y: 0}
-    ID: 0
+  cols: []
   moves:
   - isRow: 0
     id: 0
