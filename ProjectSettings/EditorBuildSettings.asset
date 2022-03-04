@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/James Scenes/LevelSelect.unity
+    guid: 3f28e323625908840ae8c2072398e71c
+  - enabled: 1
     path: Assets/Scenes/Jack Scenes/RubixTestScene.unity
     guid: ab1f20c10442b1e4c82b466c16ce1fc4
   m_configObjects: {}
