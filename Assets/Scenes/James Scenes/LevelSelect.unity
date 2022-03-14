@@ -174,6 +174,18 @@ MonoBehaviour:
       value: {fileID: 11400000, guid: 3dbd992fa45f10840869c9f9caebfb1e, type: 2}
       isDuplicateKey: 0
       index: 4
+    - key: level6
+      value: {fileID: 11400000, guid: 0f79d64437afccb4aae7be5022fa8b35, type: 2}
+      isDuplicateKey: 0
+      index: 5
+    - key: level8
+      value: {fileID: 11400000, guid: a6d4100bd2aa98647bc269331f90e64c, type: 2}
+      isDuplicateKey: 0
+      index: 6
+    - key: level10
+      value: {fileID: 11400000, guid: 0745c0c953447dd44b2e0d0432e81327, type: 2}
+      isDuplicateKey: 0
+      index: 7
 --- !u!4 &243859567
 Transform:
   m_ObjectHideFlags: 0
