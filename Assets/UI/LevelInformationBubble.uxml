@@ -1,17 +1,19 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="SF_UI_Styles.uss" />
-    <GallantGames.UI.AspectRatioPanel aspect-ratio-x="4" aspect-ratio-y="3" style="justify-content: flex-end;">
-        <ui:VisualElement style="border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; width: 100%; height: 90%; align-items: center; justify-content: flex-start; background-color: rgb(43, 52, 178);">
-            <ui:VisualElement style="height: 100%; width: 100%; justify-content: center; align-items: center;">
-                <ui:Button text="Play" display-tooltip-when-elided="true" style="margin-left: 3%; margin-right: 3%; margin-top: 3%; margin-bottom: 3%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 30%; background-color: rgb(43, 52, 178); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; width: 70%; height: 30%; max-height: 30%; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px;" />
+    <ui:VisualElement style="width: 400px; height: 300px; max-width: 400px; max-height: 300px; min-height: 300px; min-width: 400px;">
+        <GallantGames.UI.AspectRatioPanel aspect-ratio-x="4" aspect-ratio-y="3" style="justify-content: flex-end;">
+            <ui:VisualElement style="border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; width: 100%; height: 90%; align-items: center; justify-content: flex-start; background-color: rgb(43, 52, 178);">
+                <ui:VisualElement style="height: 100%; width: 100%; justify-content: center; align-items: center;">
+                    <ui:Button text="Play" display-tooltip-when-elided="true" style="margin-left: 3%; margin-right: 3%; margin-top: 3%; margin-bottom: 3%; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; font-size: 30%; background-color: rgb(43, 52, 178); border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-top-right-radius: 20px; border-bottom-right-radius: 20px; width: 70%; height: 30%; max-height: 30%; border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-        </ui:VisualElement>
-    </GallantGames.UI.AspectRatioPanel>
-    <GallantGames.UI.AspectRatioPanel aspect-ratio-x="4" aspect-ratio-y="3">
-        <ui:VisualElement style="width: 100%; align-items: center; height: 30%;">
-            <ui:VisualElement tabindex="0" style="position: absolute; top: auto; bottom: auto; height: 100%; max-height: none; min-height: auto; justify-content: center; align-items: center;">
-                <ui:Label text="Level 1" display-tooltip-when-elided="true" tabindex="0" style="height: 100%; font-size: 40%; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; -unity-text-align: middle-center; max-width: initial; min-width: initial; width: 100%; justify-content: center; position: relative; top: auto; left: auto; right: auto; background-color: rgb(43, 52, 178); color: rgb(255, 255, 255); white-space: normal; -unity-font-style: bold;" />
+        </GallantGames.UI.AspectRatioPanel>
+        <GallantGames.UI.AspectRatioPanel aspect-ratio-x="4" aspect-ratio-y="3">
+            <ui:VisualElement style="width: 100%; align-items: center; height: 30%;">
+                <ui:VisualElement tabindex="0" style="position: absolute; top: auto; bottom: auto; height: 100%; max-height: none; min-height: auto; justify-content: center; align-items: center;">
+                    <ui:Label text="Level 1" display-tooltip-when-elided="true" tabindex="0" style="height: 100%; font-size: 40%; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); border-left-width: 5px; border-right-width: 5px; border-top-width: 5px; border-bottom-width: 5px; border-top-left-radius: 10px; border-bottom-left-radius: 10px; border-top-right-radius: 10px; border-bottom-right-radius: 10px; align-items: center; -unity-text-align: middle-center; max-width: initial; min-width: initial; width: 100%; justify-content: center; position: relative; top: auto; left: auto; right: auto; background-color: rgb(43, 52, 178); color: rgb(255, 255, 255); white-space: normal; -unity-font-style: bold;" />
+                </ui:VisualElement>
             </ui:VisualElement>
-        </ui:VisualElement>
-    </GallantGames.UI.AspectRatioPanel>
+        </GallantGames.UI.AspectRatioPanel>
+    </ui:VisualElement>
 </ui:UXML>
