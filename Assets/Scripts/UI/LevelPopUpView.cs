@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class LevelPopUpView : View<LevelPopUpViewModel>
@@ -14,9 +13,10 @@ public class LevelPopUpView : View<LevelPopUpViewModel>
         Root.style.left = new StyleLength(viewModel.Position.x);
         Root.style.top = new StyleLength(Screen.currentResolution.height - viewModel.Position.y);
 
-
-        var level1 = Root.Q<UnityEngine.UIElements.Button>("playButton");
-
+        var label1 = Root.Q<Label>("nameLabel");
+        label1.text = viewModel.Name;
+        
+        var level1 = Root.Q<Button>("playButton");
         level1.BindClick(viewModel.OnClick).AddTo(disposable);
     }
 }

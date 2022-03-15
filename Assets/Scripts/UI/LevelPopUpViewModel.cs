@@ -15,12 +15,19 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
     public Vector3 Position => m_pos;
 
     [SerializeField]
+    private string m_levelRef;
+    [SerializeField]
+    private Board m_selectedBoard;
+
+    [SerializeField]
     private string m_name;
     public string Name => m_name;
 
     ReactiveProperty<PersistentDataManager> _pDataManager = new ReactiveProperty<PersistentDataManager>();
 
     public ReactiveCommand<ClickEvent> OnClick;
+
+
 
     public override bool CanInitialize()
     {
@@ -29,13 +36,15 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
 
     public override void OnInitialization()
     {
+        m_selectedBoard = _pDataManager.Value.Levels[m_levelRef];
+        m_name = m_selectedBoard.LevelName;
         OnClick = new ReactiveCommand<ClickEvent>(_pDataManager.Select(x => x != null));
         OnClick.Subscribe(x =>
         {
             var data = _pDataManager.Value;
             try
             {
-                data.selectedBoard = data.Levels[m_name];
+                data.selectedBoard = m_selectedBoard;
                 SceneManager.LoadScene(data.PlayLevel, LoadSceneMode.Single);
             }
             catch (Exception)
@@ -56,7 +65,7 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
         LevelPopUpClickable l_vClick = f_pos.pointerClick?.GetComponentInChildren<LevelPopUpClickable>();
         if(l_vClick != null)
         {
-            m_name = l_vClick.LevelName;
+            m_levelRef = l_vClick.LevelName;
         }
     }
 }
