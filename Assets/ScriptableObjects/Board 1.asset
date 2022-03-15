@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
   m_Name: Board 1
   m_EditorClassIdentifier: 
+  m_levelName: Level 2
   background: {fileID: 2800000, guid: 492ece55537b80348945531f345072ba, type: 3}
   width: 3
   height: 3
