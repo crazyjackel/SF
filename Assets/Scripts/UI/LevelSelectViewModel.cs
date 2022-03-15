@@ -35,7 +35,7 @@ public class LevelSelectViewModel : ViewModel<LevelSelectViewModel>
                 data.selectedBoard = data.Levels[str];
                 SceneManager.LoadScene(levelName, LoadSceneMode.Single);
             }
-            catch (Exception e)
+            catch (Exception)
             {
 
             }

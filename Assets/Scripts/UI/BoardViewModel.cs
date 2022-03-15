@@ -207,7 +207,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         LoadNextLevelCommand.Subscribe(x =>
         {
             Debug.Log("Loading Next Level...");
-            SceneManager.LoadScene("LevelSelect", LoadSceneMode.Single);
+            SceneManager.LoadScene(_pDataManager.Value.LevelSelect, LoadSceneMode.Single);
         });
         LoadTiles();
     }

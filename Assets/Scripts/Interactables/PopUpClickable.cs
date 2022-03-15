@@ -31,6 +31,6 @@ public class PopUpClickable : ClickableBehavior
     protected virtual void SetupGameObject(GameObject f_popUp, PointerEventData data)
     {
         IPopUp[] popUps = f_popUp.GetComponentsInChildren<IPopUp>();
-        foreach (IPopUp pop in popUps) pop.PopUp(data.position);
+        foreach (IPopUp pop in popUps) pop.PopUp(data);
     }
 }

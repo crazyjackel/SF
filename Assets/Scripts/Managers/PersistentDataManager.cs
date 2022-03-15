@@ -7,6 +7,14 @@ using UnityEngine;
 
 public class PersistentDataManager : BaseManager
 {
+    [SerializeField]
+    private string m_playLevel;
+    public string PlayLevel => m_playLevel;
+
+    [SerializeField]
+    private string m_LevelSelect;
+    public string LevelSelect => m_LevelSelect;
+
     private Board _selectBoard;
     public Board selectedBoard
     {

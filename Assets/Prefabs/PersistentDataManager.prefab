@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d8075bdc761cc4ab96af99935f84b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_playLevel: RubixTestScene
+  m_LevelSelect: LevelSelectSceneWorld
   levels:
     _serializedPairs:
     - key: level1
