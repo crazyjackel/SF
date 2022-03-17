@@ -43,39 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d8075bdc761cc4ab96af99935f84b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_playLevel: RubixTestScene
-  m_LevelSelect: LevelSelectSceneWorld
-  levels:
-    _serializedPairs:
-    - key: level1
-      value: {fileID: 11400000, guid: c2ed10e22c1ea4240a372d919f027233, type: 2}
-      isDuplicateKey: 0
-      index: 0
-    - key: level2
-      value: {fileID: 11400000, guid: c8d33bc1ec1d41649aa8632a11d16801, type: 2}
-      isDuplicateKey: 0
-      index: 1
-    - key: level3
-      value: {fileID: 11400000, guid: f9e65c07b9084f04280dfc933ad49ebc, type: 2}
-      isDuplicateKey: 0
-      index: 2
-    - key: level4
-      value: {fileID: 11400000, guid: c54f3f1123474a04e97c8a51898843b2, type: 2}
-      isDuplicateKey: 0
-      index: 3
-    - key: level5
-      value: {fileID: 11400000, guid: 3dbd992fa45f10840869c9f9caebfb1e, type: 2}
-      isDuplicateKey: 0
-      index: 4
-    - key: level6
-      value: {fileID: 11400000, guid: 0f79d64437afccb4aae7be5022fa8b35, type: 2}
-      isDuplicateKey: 0
-      index: 5
-    - key: level8
-      value: {fileID: 11400000, guid: a6d4100bd2aa98647bc269331f90e64c, type: 2}
-      isDuplicateKey: 0
-      index: 6
-    - key: level10
-      value: {fileID: 11400000, guid: 0745c0c953447dd44b2e0d0432e81327, type: 2}
-      isDuplicateKey: 0
-      index: 7
+  constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}

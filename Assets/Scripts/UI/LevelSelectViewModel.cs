@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 public class LevelSelectViewModel : ViewModel<LevelSelectViewModel>
 {
     [SerializeField]
-    string levelName;
+    private GameConstants constants;
 
     ReactiveProperty<PersistentDataManager> _pDataManager = new ReactiveProperty<PersistentDataManager>();
 
@@ -24,7 +24,7 @@ public class LevelSelectViewModel : ViewModel<LevelSelectViewModel>
 
     public override void OnInitialization()
     {
-        OnClick = new ReactiveCommand<(ClickEvent, string)>(_pDataManager.Select(x => x != null));
+        OnClick = new ReactiveCommand<(ClickEvent, string)>();
         OnClick.Subscribe(x =>
         {
             var ce = x.Item1;
@@ -32,8 +32,8 @@ public class LevelSelectViewModel : ViewModel<LevelSelectViewModel>
             var data = _pDataManager.Value;
             try
             {
-                data.selectedBoard = data.Levels[str];
-                SceneManager.LoadScene(levelName, LoadSceneMode.Single);
+                data.selectedBoard = constants.Levels[str];
+                SceneManager.LoadScene(constants.PlayLevel, LoadSceneMode.Single);
             }
             catch (Exception)
             {

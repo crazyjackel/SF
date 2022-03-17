@@ -13,6 +13,9 @@ using UnityEngine.UIElements;
 public class BoardViewModel : ViewModel<BoardViewModel>
 {
     [SerializeField]
+    private GameConstants constants;
+    
+    [SerializeField]
     private Board board;
 
     private Tile[,] tiles;
@@ -207,7 +210,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         LoadNextLevelCommand.Subscribe(x =>
         {
             Debug.Log("Loading Next Level...");
-            SceneManager.LoadScene(_pDataManager.Value.LevelSelect, LoadSceneMode.Single);
+            SceneManager.LoadScene(constants.LevelSelect, LoadSceneMode.Single);
         });
         LoadTiles();
     }

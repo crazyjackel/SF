@@ -154,6 +154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 835a73417b2f14e449c18cab98b7465a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
   board: {fileID: 11400000, guid: c2ed10e22c1ea4240a372d919f027233, type: 2}
 --- !u!114 &460700931
 MonoBehaviour:

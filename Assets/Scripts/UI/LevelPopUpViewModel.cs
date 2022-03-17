@@ -11,6 +11,9 @@ using UnityEngine.UIElements;
 public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
 {
     [SerializeField]
+    private GameConstants constants;
+
+    [SerializeField]
     private Vector3 m_pos;
     public Vector3 Position => m_pos;
 
@@ -36,7 +39,7 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
 
     public override void OnInitialization()
     {
-        m_selectedBoard = _pDataManager.Value.Levels[m_levelRef];
+        m_selectedBoard = constants.Levels[m_levelRef];
         m_name = m_selectedBoard.LevelName;
         OnClick = new ReactiveCommand<ClickEvent>(_pDataManager.Select(x => x != null));
         OnClick.Subscribe(x =>
@@ -45,7 +48,7 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
             try
             {
                 data.selectedBoard = m_selectedBoard;
-                SceneManager.LoadScene(data.PlayLevel, LoadSceneMode.Single);
+                SceneManager.LoadScene(constants.PlayLevel, LoadSceneMode.Single);
             }
             catch (Exception)
             {

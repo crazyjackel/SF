@@ -267,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e3fefffb120864a8cf296884fd47e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
   levelName: RubixTestScene
 --- !u!114 &802656552
 MonoBehaviour:
