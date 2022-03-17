@@ -216,6 +216,8 @@ GameObject:
   m_Component:
   - component: {fileID: 802656550}
   - component: {fileID: 802656549}
+  - component: {fileID: 802656552}
+  - component: {fileID: 802656551}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -253,3 +255,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &802656551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802656548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0aa3d500ee9fbbf479bd42202b73469f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &802656552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 802656548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08a1f37ec8f492d488a64d799ca31f84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  document: {fileID: 802656549}
+  viewModel: {fileID: 802656551}
