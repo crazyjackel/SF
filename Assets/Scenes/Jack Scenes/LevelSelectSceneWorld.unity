@@ -5744,6 +5744,7 @@ MonoBehaviour:
   Scroll: 0
   ScrollInverseSpeed: 5
   myCamera: {fileID: 691636217}
+  save: {fileID: 11400000, guid: 2aa1266cdd5d2aa40b8d26ed073f1a9f, type: 2}
 --- !u!114 &691636220
 MonoBehaviour:
   m_ObjectHideFlags: 0

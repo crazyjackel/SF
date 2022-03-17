@@ -10,8 +10,8 @@ public class PersistentDataManager : BaseManager
     [SerializeField]
     private GameConstants constants;
 
-    private Board _selectBoard;
-    public Board selectedBoard
+    private KeyValuePair<string,Board> _selectBoard;
+    public KeyValuePair<string, Board> selectedBoard
     {
         get
         {
@@ -26,7 +26,7 @@ public class PersistentDataManager : BaseManager
     private void Awake()
     {
         if (DepInjector.GetProvider<PersistentDataManager>() != null) Destroy(this.gameObject);
-        selectedBoard = constants.Levels.FirstOrDefault().Value;
+        selectedBoard = constants.Levels.FirstOrDefault();
         DontDestroyOnLoad(this.gameObject);
     }
 }

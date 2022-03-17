@@ -14,7 +14,10 @@ public class BoardViewModel : ViewModel<BoardViewModel>
 {
     [SerializeField]
     private GameConstants constants;
-    
+
+    [SerializeField]
+    private SaveFile save;
+
     [SerializeField]
     private Board board;
 
@@ -196,7 +199,18 @@ public class BoardViewModel : ViewModel<BoardViewModel>
 
         return disp;
     }
-
+    public IDisposable BindOverlay(VisualElement element, IDisposable disposeOnWin)
+    {
+        return IsInWinState.Throttle(TimeSpan.FromMilliseconds(100)).Subscribe(x =>
+        {
+            if (x)
+            {
+                if (_pDataManager.HasValue) save.CompleteLevel(_pDataManager.Value.selectedBoard.Key);
+                disposeOnWin?.Dispose();
+                element.style.display = DisplayStyle.Flex;
+            }
+        });
+    }
     public override bool CanInitialize()
     {
         return _pDataManager.HasValue;
@@ -205,7 +219,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     public override void OnInitialization()
     {
         base.OnInitialization();
-        board = _pDataManager.Value.selectedBoard;
+        board = _pDataManager.Value.selectedBoard.Value;
         LoadNextLevelCommand = new ReactiveCommand<ClickEvent>();
         LoadNextLevelCommand.Subscribe(x =>
         {

@@ -155,6 +155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
+  save: {fileID: 11400000, guid: 2aa1266cdd5d2aa40b8d26ed073f1a9f, type: 2}
   board: {fileID: 11400000, guid: c2ed10e22c1ea4240a372d919f027233, type: 2}
 --- !u!114 &460700931
 MonoBehaviour:
