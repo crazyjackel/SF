@@ -8,12 +8,7 @@ using UnityEngine;
 public class PersistentDataManager : BaseManager
 {
     [SerializeField]
-    private string m_playLevel;
-    public string PlayLevel => m_playLevel;
-
-    [SerializeField]
-    private string m_LevelSelect;
-    public string LevelSelect => m_LevelSelect;
+    private GameConstants constants;
 
     private Board _selectBoard;
     public Board selectedBoard
@@ -28,14 +23,10 @@ public class PersistentDataManager : BaseManager
         }
     }
 
-    [SerializeField]
-    UDictionary<string, Board> levels = new UDictionary<string, Board>();
-    public UDictionary<string, Board> Levels => levels;
-
     private void Awake()
     {
         if (DepInjector.GetProvider<PersistentDataManager>() != null) Destroy(this.gameObject);
-        selectedBoard = levels.FirstOrDefault().Value;
+        selectedBoard = constants.Levels.FirstOrDefault().Value;
         DontDestroyOnLoad(this.gameObject);
     }
 }
