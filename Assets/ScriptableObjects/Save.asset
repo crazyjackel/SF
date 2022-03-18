@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eceea8d09a109948952a88cf074f973, type: 3}
+  m_Name: Save
+  m_EditorClassIdentifier: 
+  resetOnPlay: 1
+  constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
+  m_levelsCompleted:
+    _serializedValues: []

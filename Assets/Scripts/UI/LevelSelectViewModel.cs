@@ -32,7 +32,7 @@ public class LevelSelectViewModel : ViewModel<LevelSelectViewModel>
             var data = _pDataManager.Value;
             try
             {
-                data.selectedBoard = constants.Levels[str];
+                data.selectedBoard = new KeyValuePair<string, Board>(str, constants.Levels[str]);
                 SceneManager.LoadScene(constants.PlayLevel, LoadSceneMode.Single);
             }
             catch (Exception)

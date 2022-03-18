@@ -47,7 +47,7 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
             var data = _pDataManager.Value;
             try
             {
-                data.selectedBoard = m_selectedBoard;
+                data.selectedBoard = new KeyValuePair<string, Board>(m_levelRef, m_selectedBoard);
                 SceneManager.LoadScene(constants.PlayLevel, LoadSceneMode.Single);
             }
             catch (Exception)
@@ -66,7 +66,7 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
         m_pos = f_pos.position;
 
         LevelPopUpClickable l_vClick = f_pos.pointerClick?.GetComponentInChildren<LevelPopUpClickable>();
-        if(l_vClick != null)
+        if (l_vClick != null)
         {
             m_levelRef = l_vClick.LevelName;
         }
