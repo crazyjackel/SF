@@ -10,57 +10,34 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
-  m_Name: Board 4
+  m_Name: JungleBoard_1
   m_EditorClassIdentifier: 
-  background: {fileID: 0}
-  width: 5
-  height: 5
+  m_levelName: Level 1
+  background: {fileID: 2800000, guid: a03910c26e6349544aaebe3012146ced, type: 3}
+  width: 3
+  height: 1
   rows:
   - colors:
     - color:
         _value: 0
       isWinTile: 0
     - color:
-        _value: 1
-      isWinTile: 1
-    - color:
         _value: 0
       isWinTile: 0
     - color:
         _value: 1
       isWinTile: 1
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 0, y: 2}
+    Offset: {x: 0, y: 0}
     ID: 0
-  cols:
-  - colors:
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 2
-      isWinTile: 1
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 2
-      isWinTile: 1
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 2, y: 0}
-    ID: 0
+  cols: []
   moves:
-  - isRow: 1
-    id: 0
-    moves: 1
   - isRow: 0
     id: 0
-    moves: 2
+    moves: 1
   - isRow: 1
     id: 0
-    moves: 2
+    moves: -1
+  - isRow: 0
+    id: 0
+    moves: -1
   numberOfRandomMoves: 0
