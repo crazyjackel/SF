@@ -37,7 +37,7 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     - color:
-        _value: 2
+        _value: 1
       isWinTile: 1
     Offset: {x: 0, y: 2}
     ID: 0
@@ -60,8 +60,11 @@ MonoBehaviour:
     moves: 1
   - isRow: 1
     id: 0
-    moves: -1
+    moves: -2
   - isRow: 0
     id: 0
     moves: -1
+  - isRow: 1
+    id: 0
+    moves: 2
   numberOfRandomMoves: 0
