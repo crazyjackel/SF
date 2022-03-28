@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: JungleBoard_4
   m_EditorClassIdentifier: 
   m_levelName: Level 4
-  background: {fileID: 2800000, guid: f73c46c3c9309884794a83fa61f4acef, type: 3}
+  background: {fileID: 2800000, guid: b7731fb2e0329d54a92ac234cbbe137f, type: 3}
   width: 3
   height: 3
   rows:
@@ -37,10 +37,22 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 0, y: 1}
+    ID: 1
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
         _value: 1
       isWinTile: 1
     Offset: {x: 0, y: 2}
-    ID: 0
+    ID: 2
   cols:
   - colors:
     - color:
@@ -54,17 +66,32 @@ MonoBehaviour:
       isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 1, y: 0}
+    ID: 1
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 2, y: 0}
+    ID: 2
   moves:
-  - isRow: 0
+  - isRow: 1
     id: 0
     moves: 1
-  - isRow: 1
-    id: 0
-    moves: -2
-  - isRow: 0
-    id: 0
-    moves: -1
-  - isRow: 1
-    id: 0
-    moves: 2
   numberOfRandomMoves: 0

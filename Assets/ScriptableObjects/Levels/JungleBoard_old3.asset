@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
-  m_Name: JungleBoard_3
+  m_Name: JungleBoard_old3
   m_EditorClassIdentifier: 
   m_levelName: Level 3
   background: {fileID: 0}
