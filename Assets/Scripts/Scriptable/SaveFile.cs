@@ -20,11 +20,16 @@ public class SaveFile : ScriptableObject
     //Properties are Variables that you only want to remember while playing between scenes. Should not be saved between sessions.
     public Vector3? m_cameraPos { get; set; }
     public float? m_cameraScroll { get; set; }
+    public string m_levelSelect { get; set; }
 
     public int LevelCompleted => m_levelsCompleted.Count;
     public void CompleteLevel(string levelName)
     {
         if (constants.Levels.ContainsKey(levelName)) m_levelsCompleted.Add(levelName);
+    }
+    public bool IsLevelComplete(string levelName)
+    {
+        return m_levelsCompleted.Contains(levelName);
     }
     private void OnEnable()
     {
