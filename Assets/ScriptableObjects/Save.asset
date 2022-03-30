@@ -12,7 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eceea8d09a109948952a88cf074f973, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  resetOnPlay: 1
+  resetOnPlay: 0
   constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
   m_levelsCompleted:
-    _serializedValues: []
+    _serializedValues:
+    - value: jungle_1
+      isDuplicate: 0
+      index: 0
+    - value: jungle_2
+      isDuplicate: 0
+      index: 1
+    - value: jungle_3
+      isDuplicate: 0
+      index: 2
+    - value: jungle_4
+      isDuplicate: 0
+      index: 3
+    - value: jungle_5
+      isDuplicate: 0
+      index: 4
+    - value: jungle_6
+      isDuplicate: 0
+      index: 5
+    - value: jungle_7
+      isDuplicate: 0
+      index: 6
+    - value: jungle_8
+      isDuplicate: 0
+      index: 7
