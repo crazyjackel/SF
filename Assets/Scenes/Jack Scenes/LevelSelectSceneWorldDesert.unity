@@ -132,7 +132,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_10
+      value: desert_10
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -206,7 +206,7 @@ PrefabInstance:
       objectReference: {fileID: 2580001900953125958, guid: c3a74665f97f41443b244504d290dda7, type: 3}
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_2
+      value: desert_2
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -6009,7 +6009,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_6
+      value: desert_6
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -14430,7 +14430,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_9
+      value: desert_9
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -14557,7 +14557,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_5
+      value: desert_5
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -15847,7 +15847,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_8
+      value: desert_8
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -17113,7 +17113,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_4
+      value: desert_4
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -17249,7 +17249,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_3
+      value: desert_3
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -18107,7 +18107,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_7
+      value: desert_7
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
@@ -18254,7 +18254,7 @@ PrefabInstance:
       objectReference: {fileID: 2580001900953125958, guid: c3a74665f97f41443b244504d290dda7, type: 3}
     - target: {fileID: 6901621971825430111, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_level
-      value: jungle_1
+      value: desert_1
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147833, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_Name
