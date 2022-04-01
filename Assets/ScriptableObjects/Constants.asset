@@ -49,10 +49,50 @@ MonoBehaviour:
       isDuplicateKey: 0
       index: 7
     - key: jungle_9
-      value: {fileID: 11400000, guid: 0745c0c953447dd44b2e0d0432e81327, type: 2}
+      value: {fileID: 11400000, guid: 51a80dbc6d31665468a5337ab2c2fc05, type: 2}
       isDuplicateKey: 0
       index: 8
     - key: jungle_10
       value: {fileID: 11400000, guid: fdac8172b20718a42b2d55d82ba2f299, type: 2}
       isDuplicateKey: 0
       index: 9
+    - key: desert_1
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 10
+    - key: desert_2
+      value: {fileID: 11400000, guid: cddb9a99f34179548a2942ce9e22749b, type: 2}
+      isDuplicateKey: 0
+      index: 11
+    - key: desert_3
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 12
+    - key: desert_4
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 13
+    - key: desert_5
+      value: {fileID: 11400000, guid: 8f22a4659f8fd5d4c9c11f2a1430fb68, type: 2}
+      isDuplicateKey: 0
+      index: 14
+    - key: desert_6
+      value: {fileID: 11400000, guid: 950036296447b304ba689c708bc7e9a1, type: 2}
+      isDuplicateKey: 0
+      index: 15
+    - key: desert_7
+      value: {fileID: 11400000, guid: cd77281a1bf7ba74499b0a4260c3cf0c, type: 2}
+      isDuplicateKey: 0
+      index: 16
+    - key: desert_8
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 17
+    - key: desert_9
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 18
+    - key: desert_10
+      value: {fileID: 11400000, guid: f25b34b8b24be27409a961a1cebdc6d5, type: 2}
+      isDuplicateKey: 0
+      index: 19
