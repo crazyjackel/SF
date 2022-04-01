@@ -25,7 +25,7 @@ public class WorldSelectViewModel : ViewModel<WorldSelectViewModel>
 
     public override void OnInitialization()
     {
-        OnClickNext = new ReactiveCommand<ClickEvent>(Observable.Return(m_nextWorld != null && m_levelToBeat != null && m_file.IsLevelComplete(m_levelToBeat)));
+        OnClickNext = new ReactiveCommand<ClickEvent>(Observable.Return(m_nextWorld != null && m_nextWorld != "" && m_levelToBeat != null && m_levelToBeat != "" && m_file.IsLevelComplete(m_levelToBeat)));
         OnClickNext.Subscribe(x =>
         {
             try
@@ -37,8 +37,8 @@ public class WorldSelectViewModel : ViewModel<WorldSelectViewModel>
 
             }
         });
-        OnClickNext = new ReactiveCommand<ClickEvent>(Observable.Return(m_previousWorld != null));
-        OnClickNext.Subscribe(x =>
+        OnClickPrevious = new ReactiveCommand<ClickEvent>(Observable.Return(m_previousWorld != null && m_previousWorld != ""));
+        OnClickPrevious.Subscribe(x =>
         {
             try
             {
