@@ -1,0 +1,13 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
+    <Style src="SF_UI_Styles.uss" />
+    <ui:VisualElement style="flex-grow: 1; flex-shrink: 0; justify-content: flex-end; padding-left: 10px; padding-right: 10px; padding-top: 10px; padding-bottom: 10px;">
+        <ui:VisualElement style="flex-grow: 1; flex-shrink: 0; justify-content: space-around; height: 20%; flex-wrap: wrap; flex-direction: row; max-height: 15%;">
+            <ui:VisualElement style="flex-shrink: 0; flex-grow: 1; align-items: flex-start;">
+                <ui:Button text="Previous World" display-tooltip-when-elided="true" name="PreviousButton" style="flex-grow: 1; flex-shrink: 0; width: 70%; align-items: flex-end;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-shrink: 0; flex-grow: 1; align-items: flex-end;">
+                <ui:Button text="Next World" display-tooltip-when-elided="true" name="NextButton" style="flex-grow: 1; flex-shrink: 0; width: 70%; align-items: flex-end;" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
