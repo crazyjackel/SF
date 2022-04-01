@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40d2bb313fb83042abe5c65b140a107, type: 3}
+  m_Name: Constants
+  m_EditorClassIdentifier: 
+  m_playLevel: RubixTestScene
+  m_levelSelectLevel: LevelSelectSceneWorld
+  levels:
+    _serializedPairs:
+    - key: jungle_1
+      value: {fileID: 11400000, guid: ca0e3186d99b12b45bfd66d8375f8568, type: 2}
+      isDuplicateKey: 0
+      index: 0
+    - key: jungle_2
+      value: {fileID: 11400000, guid: 0103b574be7ec1d44b34ba136022733b, type: 2}
+      isDuplicateKey: 0
+      index: 1
+    - key: jungle_3
+      value: {fileID: 11400000, guid: 8366725ed7ea9a3479c5d78fc5456921, type: 2}
+      isDuplicateKey: 0
+      index: 2
+    - key: jungle_4
+      value: {fileID: 11400000, guid: 73887f6d2da4bc5439c517159580a277, type: 2}
+      isDuplicateKey: 0
+      index: 3
+    - key: jungle_5
+      value: {fileID: 11400000, guid: c54f3f1123474a04e97c8a51898843b2, type: 2}
+      isDuplicateKey: 0
+      index: 4
+    - key: jungle_6
+      value: {fileID: 11400000, guid: 39ac255d5e2624c4ba7a4252136ef7e4, type: 2}
+      isDuplicateKey: 0
+      index: 5
+    - key: jungle_7
+      value: {fileID: 11400000, guid: 85484a9189da552449240f7442796bfb, type: 2}
+      isDuplicateKey: 0
+      index: 6
+    - key: jungle_8
+      value: {fileID: 11400000, guid: 204ceb1b5addedc45bdf88be7ceec59e, type: 2}
+      isDuplicateKey: 0
+      index: 7
+    - key: jungle_9
+      value: {fileID: 11400000, guid: 51a80dbc6d31665468a5337ab2c2fc05, type: 2}
+      isDuplicateKey: 0
+      index: 8
+    - key: jungle_10
+      value: {fileID: 11400000, guid: fdac8172b20718a42b2d55d82ba2f299, type: 2}
+      isDuplicateKey: 0
+      index: 9
+    - key: desert_1
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 10
+    - key: desert_2
+      value: {fileID: 11400000, guid: cddb9a99f34179548a2942ce9e22749b, type: 2}
+      isDuplicateKey: 0
+      index: 11
+    - key: desert_3
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 12
+    - key: desert_4
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 13
+    - key: desert_5
+      value: {fileID: 11400000, guid: 8f22a4659f8fd5d4c9c11f2a1430fb68, type: 2}
+      isDuplicateKey: 0
+      index: 14
+    - key: desert_6
+      value: {fileID: 11400000, guid: 950036296447b304ba689c708bc7e9a1, type: 2}
+      isDuplicateKey: 0
+      index: 15
+    - key: desert_7
+      value: {fileID: 11400000, guid: cd77281a1bf7ba74499b0a4260c3cf0c, type: 2}
+      isDuplicateKey: 0
+      index: 16
+    - key: desert_8
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 17
+    - key: desert_9
+      value: {fileID: 11400000, guid: 71e09ef807df0c24eba3136d55c00b2d, type: 2}
+      isDuplicateKey: 0
+      index: 18
+    - key: desert_10
+      value: {fileID: 11400000, guid: f25b34b8b24be27409a961a1cebdc6d5, type: 2}
+      isDuplicateKey: 0
+      index: 19

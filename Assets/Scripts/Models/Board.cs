@@ -7,6 +7,11 @@ using UnityEngine;
 public class Board : ScriptableObject
 {
     [SerializeField]
+    private string m_levelName = "Level $";
+    public string LevelName => m_levelName;
+
+
+    [SerializeField]
     private Texture2D background;
     public Texture2D Background => background;
 

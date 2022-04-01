@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eceea8d09a109948952a88cf074f973, type: 3}
+  m_Name: Save
+  m_EditorClassIdentifier: 
+  resetOnPlay: 0
+  constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
+  m_levelsCompleted:
+    _serializedValues:
+    - value: jungle_1
+      isDuplicate: 0
+      index: 0
+    - value: jungle_2
+      isDuplicate: 0
+      index: 1
+    - value: jungle_3
+      isDuplicate: 0
+      index: 2
+    - value: jungle_4
+      isDuplicate: 0
+      index: 3
+    - value: jungle_5
+      isDuplicate: 0
+      index: 4
+    - value: jungle_6
+      isDuplicate: 0
+      index: 5
+    - value: jungle_7
+      isDuplicate: 0
+      index: 6
+    - value: jungle_8
+      isDuplicate: 0
+      index: 7

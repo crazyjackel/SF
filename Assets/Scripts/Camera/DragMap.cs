@@ -14,10 +14,14 @@ public class DragMap : MonoBehaviour
     [SerializeField]
     private Camera myCamera;
 
+    [SerializeField]
+    private SaveFile save;
+
     void Start()
     {
+        this.transform.position = save.m_cameraPos ?? this.transform.position;
         dist = transform.position.z;  // Distance camera is above map
-        Scroll = myCamera.orthographicSize * ScrollInverseSpeed;
+        Scroll = save.m_cameraScroll ?? myCamera.orthographicSize * ScrollInverseSpeed;
     }
 
     void Update()
@@ -39,5 +43,7 @@ public class DragMap : MonoBehaviour
         }
 
         myCamera.orthographicSize = Scroll / ScrollInverseSpeed;
+        save.m_cameraPos = this.transform.position;
+        save.m_cameraScroll = Scroll;
     }
 }

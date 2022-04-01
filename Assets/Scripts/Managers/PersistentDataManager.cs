@@ -7,8 +7,11 @@ using UnityEngine;
 
 public class PersistentDataManager : BaseManager
 {
-    private Board _selectBoard;
-    public Board selectedBoard
+    [SerializeField]
+    private GameConstants constants;
+
+    private KeyValuePair<string,Board> _selectBoard;
+    public KeyValuePair<string, Board> selectedBoard
     {
         get
         {
@@ -20,14 +23,10 @@ public class PersistentDataManager : BaseManager
         }
     }
 
-    [SerializeField]
-    UDictionary<string, Board> levels = new UDictionary<string, Board>();
-    public UDictionary<string, Board> Levels => levels;
-
     private void Awake()
     {
         if (DepInjector.GetProvider<PersistentDataManager>() != null) Destroy(this.gameObject);
-        selectedBoard = levels.FirstOrDefault().Value;
+        selectedBoard = constants.Levels.FirstOrDefault();
         DontDestroyOnLoad(this.gameObject);
     }
 }

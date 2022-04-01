@@ -123,71 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &243859565
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 243859567}
-  - component: {fileID: 243859566}
-  m_Layer: 0
-  m_Name: PersistentDataManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &243859566
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243859565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75d8075bdc761cc4ab96af99935f84b7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levels:
-    _serializedPairs:
-    - key: level1
-      value: {fileID: 11400000, guid: c2ed10e22c1ea4240a372d919f027233, type: 2}
-      isDuplicateKey: 0
-      index: 0
-    - key: level2
-      value: {fileID: 11400000, guid: c8d33bc1ec1d41649aa8632a11d16801, type: 2}
-      isDuplicateKey: 0
-      index: 1
-    - key: level3
-      value: {fileID: 11400000, guid: f9e65c07b9084f04280dfc933ad49ebc, type: 2}
-      isDuplicateKey: 0
-      index: 2
-    - key: level4
-      value: {fileID: 11400000, guid: c54f3f1123474a04e97c8a51898843b2, type: 2}
-      isDuplicateKey: 0
-      index: 3
-    - key: level5
-      value: {fileID: 11400000, guid: 3dbd992fa45f10840869c9f9caebfb1e, type: 2}
-      isDuplicateKey: 0
-      index: 4
---- !u!4 &243859567
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 243859565}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8582623, y: -0.975003, z: -6.409902}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &719649006
 GameObject:
   m_ObjectHideFlags: 0
@@ -332,6 +267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e3fefffb120864a8cf296884fd47e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
   levelName: RubixTestScene
 --- !u!114 &802656552
 MonoBehaviour:
@@ -347,3 +283,60 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   document: {fileID: 802656549}
   viewModel: {fileID: 802656551}
+--- !u!1001 &6087057478588879623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.8582623
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.975003
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.409902
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804520, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6087057478747804522, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}
+      propertyPath: m_Name
+      value: PersistentDataManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1d7eb9517386fc549b5bb8f8946fa511, type: 3}

@@ -7,11 +7,13 @@ using UnityEngine;
 [Serializable]
 public class SmartColor : SmartEnum<SmartColor>
 {
-    public static readonly SmartColor Default = new SmartColor(nameof(Default), 0, new Color(0.5f,0.5f,0.5f,1));
-    public static readonly SmartColor Red = new SmartColor(nameof(Red), 1, new Color(1.0f,0.0f,0.0f,1));
-    public static readonly SmartColor Green = new SmartColor(nameof(Green), 2, new Color(0.0f,1.0f,0.0f,1));
+    public static readonly SmartColor Default = new SmartColor(nameof(Default), 0, Color.grey);
+    public static readonly SmartColor Red = new SmartColor(nameof(Red), 1, Color.red);
+    public static readonly SmartColor Green = new SmartColor(nameof(Green), 2, Color.green);
+    public static readonly SmartColor Blue = new SmartColor(nameof(Blue), 3, Color.blue);
+    public static readonly SmartColor Yellow = new SmartColor(nameof(Yellow), 4, Color.yellow);
 
-    [SerializeField]
+
     private Color _color;
     public Color GetColor() => _color;
 

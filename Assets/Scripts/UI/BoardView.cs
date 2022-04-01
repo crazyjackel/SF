@@ -73,16 +73,6 @@ public class BoardView : View<BoardViewModel>
         }
 
         gameplayDisposable.AddTo(disposable);
-
-        viewModel.IsInWinState.Throttle(TimeSpan.FromMilliseconds(100)).Subscribe(x =>
-        {
-            if (x)
-            {
-                gameplayDisposable.Dispose();
-                overlay.style.display = DisplayStyle.Flex;
-            }
-
-
-        }).AddTo(disposable);
+        viewModel.BindOverlay(overlay, gameplayDisposable).AddTo(disposable);
     }
 }
