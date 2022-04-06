@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
-  m_Name: JungleBoard_9
+  m_Name: DesertBoard_4
   m_EditorClassIdentifier: 
-  m_levelName: Level 9
+  m_levelName: Level 14
   background: {fileID: 2800000, guid: b7731fb2e0329d54a92ac234cbbe137f, type: 3}
   width: 3
   height: 3
@@ -47,20 +47,32 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     - color:
-        _value: 0
-      isWinTile: 0
+        _value: 2
+      isWinTile: 1
     - color:
         _value: 0
       isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 2, y: 0}
+    ID: 1
   moves:
   - isRow: 1
     id: 0
     moves: 2
   - isRow: 0
     id: 0
-    moves: 1
+    moves: -1
   - isRow: 1
     id: 1
     moves: 1
