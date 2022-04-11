@@ -96,3 +96,43 @@ MonoBehaviour:
       value: {fileID: 11400000, guid: 922a9f35fa331e64abac5daa54275f5e, type: 2}
       isDuplicateKey: 0
       index: 19
+    - key: swamp_1
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 20
+    - key: swamp_2
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 21
+    - key: swamp_3
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 22
+    - key: swamp_4
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 23
+    - key: swamp_5
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 24
+    - key: swamp_6
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 25
+    - key: swamp_7
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 26
+    - key: swamp_8
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 27
+    - key: swamp_9
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 28
+    - key: swamp_10
+      value: {fileID: 11400000, guid: ba2fe8c64b0140140943e9546e4459dc, type: 2}
+      isDuplicateKey: 0
+      index: 29

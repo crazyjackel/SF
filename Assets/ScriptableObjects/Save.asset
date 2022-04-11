@@ -61,3 +61,21 @@ MonoBehaviour:
     - value: desert_5
       isDuplicate: 0
       index: 14
+    - value: desert_6
+      isDuplicate: 0
+      index: 15
+    - value: desert_7
+      isDuplicate: 0
+      index: 16
+    - value: desert_8
+      isDuplicate: 0
+      index: 17
+    - value: desert_9
+      isDuplicate: 0
+      index: 18
+    - value: desert_10
+      isDuplicate: 0
+      index: 19
+    - value: swamp_1
+      isDuplicate: 0
+      index: 20
