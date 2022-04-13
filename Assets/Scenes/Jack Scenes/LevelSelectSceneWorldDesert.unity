@@ -15954,12 +15954,16 @@ PrefabInstance:
       value: Level_Select_UI
       objectReference: {fileID: 0}
     - target: {fileID: 7229132228431907935, guid: 869239680dde79e4b98c653445bd9c59, type: 3}
+      propertyPath: m_nextWorld
+      value: LevelSelectSceneWorldSwamp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7229132228431907935, guid: 869239680dde79e4b98c653445bd9c59, type: 3}
       propertyPath: m_levelToBeat
       value: desert_10
       objectReference: {fileID: 0}
     - target: {fileID: 7229132228431907935, guid: 869239680dde79e4b98c653445bd9c59, type: 3}
       propertyPath: m_previousWorld
-      value: LevelSelectSceneWorld
+      value: LevelSelectSceneWorldJungle
       objectReference: {fileID: 0}
     - target: {fileID: 7434510588612338383, guid: 869239680dde79e4b98c653445bd9c59, type: 3}
       propertyPath: m_RootOrder

@@ -76,3 +76,6 @@ MonoBehaviour:
     - value: desert_10
       isDuplicate: 0
       index: 19
+    - value: swamp_1
+      isDuplicate: 0
+      index: 20

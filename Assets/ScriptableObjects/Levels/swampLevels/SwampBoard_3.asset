@@ -10,23 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2845196bbe745f478653ecb5e0c202f, type: 3}
-  m_Name: DesertBoard_5
+  m_Name: SwampBoard_3
   m_EditorClassIdentifier: 
-  m_levelName: Level 15
-  background: {fileID: 2800000, guid: b7731fb2e0329d54a92ac234cbbe137f, type: 3}
+  m_levelName: Level 23
+  background: {fileID: 2800000, guid: f73c46c3c9309884794a83fa61f4acef, type: 3}
   width: 3
   height: 3
   rows:
   - colors:
-    - color:
-        _value: 2
-      isWinTile: 1
     - color:
         _value: 0
       isWinTile: 0
     - color:
         _value: 1
       isWinTile: 1
+    - color:
+        _value: 0
+      isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
   - colors:
@@ -34,34 +34,16 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     - color:
-        _value: 1
-      isWinTile: 1
+        _value: 0
+      isWinTile: 0
     - color:
         _value: 0
       isWinTile: 0
     Offset: {x: 0, y: 2}
-    ID: 1
-  cols:
-  - colors:
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 1, y: 0}
     ID: 0
+  cols: []
   moves:
   - isRow: 1
     id: 0
-    moves: 1
-  - isRow: 1
-    id: 1
-    moves: 1
-  - isRow: 0
-    id: 0
-    moves: 1
+    moves: 3
   numberOfRandomMoves: 0
