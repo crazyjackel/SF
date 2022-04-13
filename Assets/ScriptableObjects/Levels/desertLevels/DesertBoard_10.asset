@@ -25,28 +25,58 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     - color:
-        _value: 4
-      isWinTile: 1
+        _value: 0
+      isWinTile: 0
     - color:
-        _value: 2
-      isWinTile: 1
+        _value: 0
+      isWinTile: 0
     Offset: {x: 0, y: 0}
     ID: 0
   - colors:
     - color:
+        _value: 0
+      isWinTile: 0
+    - color:
         _value: 2
       isWinTile: 1
     - color:
-        _value: 3
-      isWinTile: 1
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 0, y: 1}
+    ID: 1
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
     - color:
         _value: 0
       isWinTile: 0
     - color:
         _value: 1
       isWinTile: 1
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 0, y: 2}
+    ID: 2
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 2
+      isWinTile: 1
     Offset: {x: 0, y: 3}
-    ID: 0
+    ID: 3
   cols:
   - colors:
     - color:
@@ -76,16 +106,49 @@ MonoBehaviour:
     - color:
         _value: 0
       isWinTile: 0
-    Offset: {x: 3, y: 0}
+    Offset: {x: 1, y: 0}
     ID: 1
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 2, y: 0}
+    ID: 2
+  - colors:
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    - color:
+        _value: 0
+      isWinTile: 0
+    Offset: {x: 3, y: 0}
+    ID: 3
   moves:
   - isRow: 1
     id: 0
-    moves: 2
+    moves: 1
   - isRow: 0
     id: 1
-    moves: 3
+    moves: 1
   - isRow: 1
-    id: 1
+    id: 3
+    moves: 2
+  - isRow: 0
+    id: 2
     moves: 3
   numberOfRandomMoves: 0

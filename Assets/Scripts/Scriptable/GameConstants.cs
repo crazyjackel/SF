@@ -1,4 +1,5 @@
 using Bewildered;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,12 @@ public partial class GameConstants : ScriptableObject
     public string LevelSelect => m_levelSelectLevel;
 
     [SerializeField]
-    UDictionary<string, Board> levels = new UDictionary<string, Board>();
-    public UDictionary<string, Board> Levels => levels;
+    LevelDict levels = new LevelDict();
+    public LevelDict Levels => levels;
+}
+
+[Serializable]
+public class LevelDict : UDictionary<string, Board>
+{
+
 }
