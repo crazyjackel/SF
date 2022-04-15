@@ -234,11 +234,11 @@
       "hash": "bfadc563c547174d140df7d57d9e9ebc2ae9c46c"
     },
     "io.crazyjackel.redmoon-smartables": {
-      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.5",
+      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.6",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "bd3be72cc8b4b047bde6d98e336b932f70f3f45f"
+      "hash": "994a1c448a0027b3231043370ac3f7aba68b0700"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
