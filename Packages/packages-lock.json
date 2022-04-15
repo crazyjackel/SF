@@ -234,7 +234,7 @@
       "hash": "bfadc563c547174d140df7d57d9e9ebc2ae9c46c"
     },
     "io.crazyjackel.redmoon-smartables": {
-      "version": "https://github.com/crazyjackel/redmoon-smartables.git#main",
+      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.5",
       "depth": 0,
       "source": "git",
       "dependencies": {},
