@@ -12,7 +12,70 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eceea8d09a109948952a88cf074f973, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
-  resetOnPlay: 1
+  resetOnPlay: 0
   constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
   m_levelsCompleted:
-    _serializedValues: []
+    _serializedValues:
+    - value: jungle_1
+      isDuplicate: 0
+      index: 0
+    - value: jungle_2
+      isDuplicate: 0
+      index: 1
+    - value: jungle_3
+      isDuplicate: 0
+      index: 2
+    - value: jungle_4
+      isDuplicate: 0
+      index: 3
+    - value: jungle_5
+      isDuplicate: 0
+      index: 4
+    - value: jungle_6
+      isDuplicate: 0
+      index: 5
+    - value: jungle_7
+      isDuplicate: 0
+      index: 6
+    - value: jungle_8
+      isDuplicate: 0
+      index: 7
+    - value: jungle_9
+      isDuplicate: 0
+      index: 8
+    - value: jungle_10
+      isDuplicate: 0
+      index: 9
+    - value: desert_1
+      isDuplicate: 0
+      index: 10
+    - value: desert_2
+      isDuplicate: 0
+      index: 11
+    - value: desert_3
+      isDuplicate: 0
+      index: 12
+    - value: desert_4
+      isDuplicate: 0
+      index: 13
+    - value: desert_5
+      isDuplicate: 0
+      index: 14
+    - value: desert_6
+      isDuplicate: 0
+      index: 15
+    - value: desert_7
+      isDuplicate: 0
+      index: 16
+    - value: desert_8
+      isDuplicate: 0
+      index: 17
+    - value: desert_9
+      isDuplicate: 0
+      index: 18
+    - value: desert_10
+      isDuplicate: 0
+      index: 19
+    - value: swamp_1
+      isDuplicate: 0
+      index: 20
