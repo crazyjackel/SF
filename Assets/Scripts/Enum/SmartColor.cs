@@ -8,11 +8,10 @@ using UnityEngine;
 public class SmartColor : SmartEnum<SmartColor>
 {
     public static readonly SmartColor Default = new SmartColor(nameof(Default), 0, Color.grey);
-    public static readonly SmartColor Red = new SmartColor(nameof(Red), 1, new Color(1,0,0.25f));
-    public static readonly SmartColor Yellow = new SmartColor(nameof(Yellow), 2, Color.yellow);
-    public static readonly SmartColor Green = new SmartColor(nameof(Green), 3, new Color(25f/256,125f/256,15f/256));
-    public static readonly SmartColor Blue = new SmartColor(nameof(Blue), 4, new Color(0.35f,0.8f,0.8f));
-    public static readonly SmartColor Purple = new SmartColor(nameof(Purple), 5, new Color(0.39f, 0, 0.44f));
+    public static readonly SmartColor Red = new SmartColor(nameof(Red), 1, Color.red);
+    public static readonly SmartColor Green = new SmartColor(nameof(Green), 2, Color.green);
+    public static readonly SmartColor Blue = new SmartColor(nameof(Blue), 3, Color.blue);
+    public static readonly SmartColor Yellow = new SmartColor(nameof(Yellow), 4, Color.yellow);
 
 
     private Color _color;
