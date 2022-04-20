@@ -19,18 +19,12 @@ MonoBehaviour:
   rows:
   - colors:
     - color:
+        _value: 0
+      isWinTile: 0
+    - color:
         _value: 1
       isWinTile: 1
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 3
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 0, y: 0}
+    Offset: {x: 1, y: 0}
     ID: 0
   - colors:
     - color:
@@ -61,21 +55,15 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     Offset: {x: 0, y: 2}
-    ID: 1
+    ID: 2
   - colors:
     - color:
         _value: 0
       isWinTile: 0
     - color:
         _value: 3
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 3
       isWinTile: 1
-    Offset: {x: 0, y: 3}
+    Offset: {x: 1, y: 3}
     ID: 0
   cols:
   - colors:
@@ -85,13 +73,7 @@ MonoBehaviour:
     - color:
         _value: 0
       isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 0, y: 0}
+    Offset: {x: 0, y: 1}
     ID: 0
   - colors:
     - color:
@@ -122,7 +104,7 @@ MonoBehaviour:
         _value: 0
       isWinTile: 0
     Offset: {x: 2, y: 0}
-    ID: 1
+    ID: 2
   - colors:
     - color:
         _value: 0
@@ -130,13 +112,7 @@ MonoBehaviour:
     - color:
         _value: 0
       isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    - color:
-        _value: 0
-      isWinTile: 0
-    Offset: {x: 3, y: 0}
+    Offset: {x: 3, y: 1}
     ID: 0
   moves:
   - isRow: 1
