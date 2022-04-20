@@ -63,5 +63,11 @@ MonoBehaviour:
   moves:
   - isRow: 1
     id: 0
-    moves: 3
+    moves: 2
+  - isRow: 1
+    id: 1
+    moves: -1
+  - isRow: 0
+    id: 0
+    moves: 2
   numberOfRandomMoves: 0
