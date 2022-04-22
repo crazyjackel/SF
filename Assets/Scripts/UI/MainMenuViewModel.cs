@@ -15,7 +15,7 @@ public class MainMenuViewModel : ViewModel<MainMenuViewModel>
         Onclick.Subscribe(x =>
         {
             Debug.Log("Loading Next Level...");
-            SceneManager.LoadScene("LevelSelectSceneWorld", LoadSceneMode.Single);
+            SceneManager.LoadScene("LevelSelectSceneWorldJungle", LoadSceneMode.Single);
         });
     }
 }
