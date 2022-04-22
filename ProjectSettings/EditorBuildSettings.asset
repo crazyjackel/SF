@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jack Scenes/LevelSelectSceneWorldDesert.unity
     guid: 9d540fd80b36e5b4393567405270e38a
+  - enabled: 1
+    path: Assets/Scenes/Jack Scenes/LevelSelectSceneWorldSwamp.unity
+    guid: 93dc2e4824d0f934b99af3bfd2606508
   m_configObjects: {}
