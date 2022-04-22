@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.bewildered.core": "https://github.com/MechWarrior99/Bewildered-Core.git",
     "com.coffee.upm-git-extension": "https://github.com/mob-sakai/UpmGitExtension.git",
     "com.neuecc.unirx": "https://github.com/neuecc/UniRx.git?path=Assets/Plugins/UniRx/Scripts",
     "com.sandolkakosdigital.unitypackagemanagerutilities": "https://github.com/sandolkakos/unity-package-manager-utilities.git",
@@ -54,6 +53,7 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "io.crazyjackel.redmoon-smartables": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.6"
+    "com.bewildered.core": "https://github.com/MechWarrior99/Bewildered-Core.git#v1.1.1",
+    "io.crazyjackel.redmoon-smartables": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.7"
   }
 }

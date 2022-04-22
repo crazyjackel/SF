@@ -1,11 +1,11 @@
 {
   "dependencies": {
     "com.bewildered.core": {
-      "version": "https://github.com/MechWarrior99/Bewildered-Core.git",
+      "version": "https://github.com/MechWarrior99/Bewildered-Core.git#v1.1.1",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "899758331e3d3251d3f9f4557b77b53cfa6826bd"
+      "hash": "924aa8d15209cdf3d08d6017c2dc1c5362908813"
     },
     "com.coffee.upm-git-extension": {
       "version": "https://github.com/mob-sakai/UpmGitExtension.git",
@@ -234,11 +234,11 @@
       "hash": "bfadc563c547174d140df7d57d9e9ebc2ae9c46c"
     },
     "io.crazyjackel.redmoon-smartables": {
-      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.6",
+      "version": "https://github.com/crazyjackel/redmoon-smartables.git#1.0.7",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "994a1c448a0027b3231043370ac3f7aba68b0700"
+      "hash": "309d64c1a31b5bb29b3ce10c347cf2aafdfb0dce"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
