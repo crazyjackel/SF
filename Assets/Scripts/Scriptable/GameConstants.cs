@@ -17,12 +17,6 @@ public partial class GameConstants : ScriptableObject
     public string LevelSelect => m_levelSelectLevel;
 
     [SerializeField]
-    LevelDict levels = new LevelDict();
-    public LevelDict Levels => levels;
-}
-
-[Serializable]
-public class LevelDict : UDictionary<string, Board>
-{
-
+    UDictionary<string, Board> levels = new UDictionary<string, Board>();
+    public UDictionary<string, Board> Levels => levels;
 }
