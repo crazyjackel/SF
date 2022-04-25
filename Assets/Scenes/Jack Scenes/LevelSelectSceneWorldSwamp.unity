@@ -17533,7 +17533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   file: {fileID: 11400000, guid: 2aa1266cdd5d2aa40b8d26ed073f1a9f, type: 2}
-  CageCompleteSprite: {fileID: 21300000, guid: 6b98ffe4059cf47468febc484cbda630, type: 3}
+  CageCompleteSprite: {fileID: 21300000, guid: ba24c45df35abf445b0ace6f4db35795, type: 3}
   Cages: []
 --- !u!1001 &1926940179
 PrefabInstance:
