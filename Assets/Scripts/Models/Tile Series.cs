@@ -68,7 +68,10 @@ public class TileSeries
     {
         Offset.Value += val;
     }
-
+    public void SetOffset(float val)
+    {
+        Offset.Value = val;
+    }
     public void ResetOffset()
     {
         Offset.Value = 0;
