@@ -17,16 +17,17 @@ class TextureDragger : MouseManipulator
     protected bool MoveColumn;
 
     private Vector2 m_Start;
-    private Vector2 m_Start_local;
     private TileSeries Row;
     private TileSeries Column;
 
+    ReactiveProperty<Vector2> diff;
     IDisposable disp;
     public TextureDragger(TileSeries Row, TileSeries Column)
     {
         this.Row = Row;
         this.Column = Column;
         activators.Add(new ManipulatorActivationFilter { button = MouseButton.LeftMouse });
+        diff = new ReactiveProperty<Vector2>();
         m_Active = false;
     }
     #endregion
@@ -36,25 +37,26 @@ class TextureDragger : MouseManipulator
     {
         target.RegisterCallback<MouseDownEvent>(OnMouseDown);
         target.RegisterCallback<MouseMoveEvent>(OnMouseMove);
-        disp = target.AsObservable<MouseMoveEvent>().Where(x => m_Active && !hasDirection).Buffer(TimeSpan.FromSeconds(0.1f)).Subscribe(ls =>
+        target.RegisterCallback<MouseUpEvent>(OnMouseUp);
+
+        disp = diff.Where(x => m_Active && !hasDirection).Buffer(TimeSpan.FromSeconds(0.1f)).Subscribe(ls =>
         {
             if (ls.Count < 1) return;
 
             hasDirection = true;
 
-            var e = ls.Last();
-            Vector2 diff = (e.localMousePosition - m_Start_local);
-            MoveColumn = Math.Abs(diff.y) >= Math.Abs(diff.x);
+            Vector2 d = ls.Last();
+            MoveColumn = Math.Abs(d.y) >= Math.Abs(d.x);
         });
-        target.RegisterCallback<MouseUpEvent>(OnMouseUp);
     }
 
     protected override void UnregisterCallbacksFromTarget()
     {
         target.UnregisterCallback<MouseDownEvent>(OnMouseDown);
         target.UnregisterCallback<MouseMoveEvent>(OnMouseMove);
-        disp?.Dispose();
         target.UnregisterCallback<MouseUpEvent>(OnMouseUp);
+
+        disp?.Dispose();
     }
     #endregion
 
@@ -69,8 +71,7 @@ class TextureDragger : MouseManipulator
 
         if (CanStartManipulation(e))
         {
-            m_Start = e.mousePosition; 
-            m_Start_local = e.localMousePosition;
+            m_Start = e.mousePosition;
             isFirst = true;
             m_Active = true; 
             hasDirection = false;
@@ -83,20 +84,22 @@ class TextureDragger : MouseManipulator
     #region OnMouseMove
     protected void OnMouseMove(MouseMoveEvent e)
     {
-        if (!m_Active || !target.HasMouseCapture() || !hasDirection)
+        if (!m_Active || !target.HasMouseCapture())
             return;
 
-        Vector2 diff = (e.mousePosition - m_Start);
+        diff.Value = (e.mousePosition - m_Start);
+
+        if (!hasDirection) return;
 
         if (MoveColumn)
         {
-            Column?.SetOffset(-diff.y);
+            Column?.SetOffset(-diff.Value.y);
             Row?.SetOffset(0);
         }
         else
         {
             Column?.SetOffset(0);
-            Row?.SetOffset(-diff.x);
+            Row?.SetOffset(-diff.Value.x);
         }
 
         e.StopPropagation();
