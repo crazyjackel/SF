@@ -20,14 +20,14 @@ class TextureDragger : MouseManipulator
     private TileSeries Row;
     private TileSeries Column;
 
-    ReactiveProperty<Vector2> diff;
+    ReactiveProperty<Vector2> offset;
     IDisposable disp;
     public TextureDragger(TileSeries Row, TileSeries Column)
     {
         this.Row = Row;
         this.Column = Column;
         activators.Add(new ManipulatorActivationFilter { button = MouseButton.LeftMouse });
-        diff = new ReactiveProperty<Vector2>();
+        offset = new ReactiveProperty<Vector2>();
         m_Active = false;
     }
     #endregion
@@ -39,15 +39,18 @@ class TextureDragger : MouseManipulator
         target.RegisterCallback<MouseMoveEvent>(OnMouseMove);
         target.RegisterCallback<MouseUpEvent>(OnMouseUp);
 
-        disp = diff.Where(x => m_Active && !hasDirection).Buffer(TimeSpan.FromSeconds(0.1f)).Subscribe(ls =>
-        {
-            if (ls.Count < 1) return;
+        disp = offset
+            .Where(x => m_Active && !hasDirection)
+            .Buffer(TimeSpan.FromSeconds(0.2f))
+            .Subscribe(ls =>
+            {
+                if (ls.Count < 1) return;
 
-            hasDirection = true;
+                hasDirection = true;
 
-            Vector2 d = ls.Last();
-            MoveColumn = Math.Abs(d.y) >= Math.Abs(d.x);
-        });
+                Vector2 d = ls.Last();
+                MoveColumn = Math.Abs(d.y) >= Math.Abs(d.x);
+            });
     }
 
     protected override void UnregisterCallbacksFromTarget()
@@ -87,20 +90,13 @@ class TextureDragger : MouseManipulator
         if (!m_Active || !target.HasMouseCapture())
             return;
 
-        diff.Value = (e.mousePosition - m_Start);
+        offset.Value = (e.mousePosition - m_Start);
 
-        if (!hasDirection) return;
+        if (!hasDirection) 
+            return;
 
-        if (MoveColumn)
-        {
-            Column?.SetOffset(-diff.Value.y);
-            Row?.SetOffset(0);
-        }
-        else
-        {
-            Column?.SetOffset(0);
-            Row?.SetOffset(-diff.Value.x);
-        }
+        Column?.SetOffset(MoveColumn ? - offset.Value.y : 0);
+        Row?.SetOffset(MoveColumn ? 0 : -offset.Value.x);
 
         e.StopPropagation();
     }
@@ -113,10 +109,11 @@ class TextureDragger : MouseManipulator
             return;
 
         m_Active = false;
-        if(MoveColumn) Column?.MoveTiles(Mathf.RoundToInt(Column.ClampedOffset.Value / TileSeries.tileSize));
-        else Row?.MoveTiles(Mathf.RoundToInt(Row.ClampedOffset.Value / TileSeries.tileSize));
-        Row?.ResetOffset();
-        Column?.ResetOffset();
+
+        TileSeries series = MoveColumn ? Column : Row;
+        series?.MoveTiles(Mathf.RoundToInt(series.ClampedOffset.Value / TileSeries.tileSize));
+        series?.ResetOffset();
+
         target.ReleaseMouse();
         e.StopPropagation();
     }
