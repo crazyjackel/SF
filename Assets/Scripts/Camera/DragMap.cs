@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DragMap : MonoBehaviour
 {
@@ -15,13 +16,17 @@ public class DragMap : MonoBehaviour
     private Camera myCamera;
 
     [SerializeField]
-    private SaveFile save;
+    private SaveFile m_save;
 
     void Start()
     {
-        this.transform.position = save.m_cameraPos ?? this.transform.position;
-        dist = transform.position.z;  // Distance camera is above map
-        Scroll = save.m_cameraScroll ?? myCamera.orthographicSize * ScrollInverseSpeed;
+        Scroll = myCamera.orthographicSize * ScrollInverseSpeed;
+        if (m_save.LevelSelect == SceneManager.GetActiveScene().name)
+        {
+            this.transform.position = m_save.CameraPos ?? this.transform.position;
+            dist = transform.position.z;  // Distance camera is above map
+            Scroll = m_save.CameraScroll ?? myCamera.orthographicSize * ScrollInverseSpeed;
+        }
     }
 
     void Update()
@@ -43,7 +48,7 @@ public class DragMap : MonoBehaviour
         }
 
         myCamera.orthographicSize = Scroll / ScrollInverseSpeed;
-        save.m_cameraPos = this.transform.position;
-        save.m_cameraScroll = Scroll;
+        m_save.CameraPos = this.transform.position;
+        m_save.CameraScroll = Scroll;
     }
 }

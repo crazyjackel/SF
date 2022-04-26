@@ -11,7 +11,7 @@ using UnityEngine.UIElements;
 public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
 {
     [SerializeField]
-    private SaveFile save;
+    private SaveFile m_save;
 
     [SerializeField]
     private GameConstants constants;
@@ -51,7 +51,7 @@ public class LevelPopUpViewModel : PopViewModel<LevelPopUpViewModel>
             try
             {
                 data.selectedBoard = new KeyValuePair<string, Board>(m_levelRef, m_selectedBoard);
-                save.m_levelSelect = SceneManager.GetActiveScene().name;
+                m_save.LevelSelect = SceneManager.GetActiveScene().name;
                 SceneManager.LoadScene(constants.PlayLevel, LoadSceneMode.Single);
             }
             catch (Exception)

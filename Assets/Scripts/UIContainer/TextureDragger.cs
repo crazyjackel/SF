@@ -41,7 +41,7 @@ class TextureDragger : MouseManipulator
 
         disp = offset
             .Where(x => m_Active && !hasDirection)
-            .Buffer(TimeSpan.FromSeconds(0.2f))
+            .Buffer(TimeSpan.FromSeconds(0.15f))
             .Subscribe(ls =>
             {
                 if (ls.Count < 1) return;

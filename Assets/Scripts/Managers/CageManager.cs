@@ -6,7 +6,7 @@ using UnityEngine;
 public class CageManager : BaseManager
 {
     [SerializeField]
-    private SaveFile file;
+    private SaveFile m_save;
 
     [SerializeField]
     private Sprite CageCompleteSprite;
@@ -21,11 +21,11 @@ public class CageManager : BaseManager
         foreach(Cage cage in Cages)
         {
             var levelName = cage.Clickable.LevelName;
-            if (file.IsLevelComplete(levelName))
+            if (m_save.SaveData.IsLevelComplete(levelName))
             {
                 cage.SpriteRenderer.sprite = CageCompleteSprite;
             }
-            else if (cage.PreviousLevelName != "" && !file.IsLevelComplete(cage.PreviousLevelName))
+            else if (cage.PreviousLevelName != "" && !m_save.SaveData.IsLevelComplete(cage.PreviousLevelName))
             {
                 cage.gameObject.SetActive(false);
             }

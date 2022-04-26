@@ -16,7 +16,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
     private GameConstants constants;
 
     [SerializeField]
-    private SaveFile save;
+    private SaveFile m_save;
 
     [SerializeField]
     private Board board;
@@ -205,7 +205,11 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         {
             if (x)
             {
-                if (_pDataManager.HasValue) save.CompleteLevel(_pDataManager.Value.selectedBoard.Key);
+                if (_pDataManager.HasValue)
+                {
+                    m_save.SaveData.CompleteLevel(_pDataManager.Value.selectedBoard.Key);
+                    m_save.Save();
+                }
                 disposeOnWin?.Dispose();
                 element.style.display = DisplayStyle.Flex;
             }
@@ -224,7 +228,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
         LoadNextLevelCommand.Subscribe(x =>
         {
             Debug.Log("Loading Next Level...");
-            SceneManager.LoadScene(save.m_levelSelect, LoadSceneMode.Single);
+            SceneManager.LoadScene(m_save.LevelSelect, LoadSceneMode.Single);
         });
         LoadTiles();
     }

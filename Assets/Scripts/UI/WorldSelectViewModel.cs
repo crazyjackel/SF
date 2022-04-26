@@ -10,7 +10,7 @@ using UnityEngine.UIElements;
 public class WorldSelectViewModel : ViewModel<WorldSelectViewModel>
 {
     [SerializeField] 
-    private SaveFile m_file;
+    private SaveFile m_save;
 
     [SerializeField]
     private string m_levelToBeat;
@@ -25,7 +25,7 @@ public class WorldSelectViewModel : ViewModel<WorldSelectViewModel>
 
     public override void OnInitialization()
     {
-        OnClickNext = new ReactiveCommand<ClickEvent>(Observable.Return(m_nextWorld != null && m_nextWorld != "" && m_levelToBeat != null && m_levelToBeat != "" && m_file.IsLevelComplete(m_levelToBeat)));
+        OnClickNext = new ReactiveCommand<ClickEvent>(Observable.Return(m_nextWorld != null && m_nextWorld != "" && m_levelToBeat != null && m_levelToBeat != "" && m_save.SaveData.IsLevelComplete(m_levelToBeat)));
         OnClickNext.Subscribe(x =>
         {
             try
