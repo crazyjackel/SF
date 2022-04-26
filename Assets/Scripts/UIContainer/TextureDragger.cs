@@ -90,7 +90,7 @@ class TextureDragger : MouseManipulator
         if (!m_Active || !target.HasMouseCapture())
             return;
 
-        offset.Value = (e.mousePosition - m_Start);
+        offset.Value = 0.75f * (e.mousePosition - m_Start);
 
         if (!hasDirection) 
             return;

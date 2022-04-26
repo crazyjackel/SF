@@ -34,10 +34,12 @@ public class SaveFile : ScriptableObject
         var jsonEnc = Crypt(json);
         bf.Serialize(file, jsonEnc);
 
+        PlayerPrefs.SetString("Save", json);
+
         file.Close();
     }
 
-    
+
 
     public void Load()
     {
@@ -46,16 +48,14 @@ public class SaveFile : ScriptableObject
             Directory.CreateDirectory(Application.persistentDataPath + "/game_save");
         }
         BinaryFormatter bf = new BinaryFormatter();
+        string json = null;
         if (File.Exists(Application.persistentDataPath + "/game_save/save.txt"))
         {
             FileStream file = File.Open(Application.persistentDataPath + "/game_save/save.txt", FileMode.Open);
             try
             {
                 string jsonEnc = (string)bf.Deserialize(file);
-                string json = Decrypt(jsonEnc);
-                Debug.Log(json);
-
-                JsonUtility.FromJsonOverwrite(json, m_save);
+                json = Decrypt(jsonEnc);
             }
             catch (Exception e)
             {
@@ -63,6 +63,12 @@ public class SaveFile : ScriptableObject
             }
             file.Close();
         }
+        else
+        {
+            json = PlayerPrefs.GetString("Save", "");
+        }
+
+        if(json != null) JsonUtility.FromJsonOverwrite(json, m_save);
     }
 
     void OnEnable()
