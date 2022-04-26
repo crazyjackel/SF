@@ -8,7 +8,7 @@ public class PopUpClickable : ClickableBehavior
     [SerializeField]
     private GameObject m_popUpPrefab;
 
-    private GameObject m_popUp;
+    protected GameObject m_popUp;
 
     public override void Click(PointerEventData data)
     {
@@ -28,6 +28,7 @@ public class PopUpClickable : ClickableBehavior
             m_popUp.SetActive(true);
         }
     }
+
     protected virtual void SetupGameObject(GameObject f_popUp, PointerEventData data)
     {
         IPopUp[] popUps = f_popUp.GetComponentsInChildren<IPopUp>();
