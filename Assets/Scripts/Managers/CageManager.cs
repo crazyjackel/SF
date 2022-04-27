@@ -11,6 +11,9 @@ public class CageManager : BaseManager
     [SerializeField]
     private Sprite CageCompleteSprite;
 
+    [SerializeField]
+    private GameObject spawnPrefab;
+
     public List<Cage> Cages = new List<Cage>();
 
     protected override void OnEnable()
@@ -24,6 +27,7 @@ public class CageManager : BaseManager
             if (m_save.IsLevelComplete(levelName))
             {
                 cage.SpriteRenderer.sprite = CageCompleteSprite;
+                if(spawnPrefab) Instantiate(spawnPrefab, cage.transform);
             }
             else if (cage.PreviousLevelName != "" && !m_save.IsLevelComplete(cage.PreviousLevelName))
             {
