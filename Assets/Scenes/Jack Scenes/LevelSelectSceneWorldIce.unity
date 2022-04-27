@@ -5944,6 +5944,87 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1001 &691563103
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3503950007360796595, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: ice
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503950007360796595, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: jungle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3503950007360796595, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: iceSongPlayer
+      value: 
+      objectReference: {fileID: 3688282744300214824, guid: ff26fc687e1e7eb4bab0bf014c41b9d1, type: 3}
+    - target: {fileID: 3503950007360796595, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: swampSongPlayer
+      value: 
+      objectReference: {fileID: 2550327255897338279, guid: 56177a0487ba5064c8f4918642805104, type: 3}
+    - target: {fileID: 3503950007360796595, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: desertSongPlayer
+      value: 
+      objectReference: {fileID: 7017837271286911421, guid: 673720ee6b0b6894a8b982e9c5ed01d8, type: 3}
+    - target: {fileID: 3503950007360796595, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: jungleSongPlayer
+      value: 
+      objectReference: {fileID: 785504550142921805, guid: 9cbbab627f86ba444ba1a325c808db31, type: 3}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.03910345
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.3627117
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.6742318
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402969083599781354, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7502699020057844378, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
+      propertyPath: m_Name
+      value: AudioManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 6726cfe37e410ed46b3bd214bad29f90, type: 3}
 --- !u!1 &691636215
 GameObject:
   m_ObjectHideFlags: 0
