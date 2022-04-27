@@ -207,7 +207,7 @@ public class BoardViewModel : ViewModel<BoardViewModel>
             {
                 if (_pDataManager.HasValue)
                 {
-                    m_save.SaveData.CompleteLevel(_pDataManager.Value.selectedBoard.Key);
+                    m_save.CompleteLevel(_pDataManager.Value.selectedBoard.Key);
                     m_save.Save();
                 }
                 disposeOnWin?.Dispose();

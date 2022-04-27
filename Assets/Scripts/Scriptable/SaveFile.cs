@@ -14,6 +14,9 @@ public class SaveFile : ScriptableObject
     static string key = "SAVESAVESAVESAVESAVESAVESAVESAVE"; //set any string of 32 chars
     static string iv = "FILEFILEFILEFILE"; //set any string of 16 chars
 
+    [SerializeField]
+    private GameConstants constants;
+
     public Vector3? CameraPos { get; set; }
     public float? CameraScroll { get; set; }
     public string LevelSelect { get; set; }
@@ -22,6 +25,14 @@ public class SaveFile : ScriptableObject
     SaveData m_save;
     public SaveData SaveData => m_save;
 
+    public void CompleteLevel(string levelName)
+    {
+        if (constants.Levels.ContainsKey(levelName)) m_save.m_levelsCompleted.Add(levelName);
+    }
+    public bool IsLevelComplete(string levelName)
+    {
+        return m_save.m_levelsCompleted.Contains(levelName);
+    }
     public void Save()
     {
         if (!Directory.Exists(Application.persistentDataPath + "/game_save"))
@@ -65,7 +76,7 @@ public class SaveFile : ScriptableObject
         }
         else
         {
-            json = PlayerPrefs.GetString("Save", "");
+            json = PlayerPrefs.GetString("Save", null);
         }
 
         if(json != null) JsonUtility.FromJsonOverwrite(json, m_save);
@@ -117,21 +128,12 @@ public class SaveData
 {
     [SerializeField]
     private bool resetOnPlay;
-    [SerializeField]
-    private GameConstants constants;
 
     //Private Fields are Variables that you want to control access to, but also save between sessions, unless reset on play is true.
     [SerializeField]
-    private UHashSet<string> m_levelsCompleted;
+    public UHashSet<string> m_levelsCompleted;
     public int LevelCompleted => m_levelsCompleted.Count;
-    public void CompleteLevel(string levelName)
-    {
-        if (constants.Levels.ContainsKey(levelName)) m_levelsCompleted.Add(levelName);
-    }
-    public bool IsLevelComplete(string levelName)
-    {
-        return m_levelsCompleted.Contains(levelName);
-    }
+    
     public void OnEnable()
     {
         if (resetOnPlay)

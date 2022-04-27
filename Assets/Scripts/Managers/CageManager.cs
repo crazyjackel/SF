@@ -21,11 +21,11 @@ public class CageManager : BaseManager
         foreach(Cage cage in Cages)
         {
             var levelName = cage.Clickable.LevelName;
-            if (m_save.SaveData.IsLevelComplete(levelName))
+            if (m_save.IsLevelComplete(levelName))
             {
                 cage.SpriteRenderer.sprite = CageCompleteSprite;
             }
-            else if (cage.PreviousLevelName != "" && !m_save.SaveData.IsLevelComplete(cage.PreviousLevelName))
+            else if (cage.PreviousLevelName != "" && !m_save.IsLevelComplete(cage.PreviousLevelName))
             {
                 cage.gameObject.SetActive(false);
             }
