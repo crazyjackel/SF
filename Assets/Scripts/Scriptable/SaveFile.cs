@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.Security.Cryptography;
 using System.Text;
+using UnityEditor;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Save", menuName = "SF/Save")]
@@ -13,6 +14,9 @@ public class SaveFile : ScriptableObject
 {
     static string key = "SAVESAVESAVESAVESAVESAVESAVESAVE"; //set any string of 32 chars
     static string iv = "FILEFILEFILEFILE"; //set any string of 16 chars
+
+    [SerializeField]
+    private bool loadOnStartup = true;
 
     [SerializeField]
     private GameConstants constants;
@@ -84,7 +88,7 @@ public class SaveFile : ScriptableObject
 
     void OnEnable()
     {
-        Load();
+        if(loadOnStartup) Load();
         SaveData.OnEnable();
     }
 
@@ -142,3 +146,21 @@ public class SaveData
         }
     }
 }
+
+#if UNITY_EDITOR
+[CustomEditor(typeof(SaveFile))]
+public class customButton : Editor
+{
+    public override void OnInspectorGUI()
+    {
+        DrawDefaultInspector();
+
+        SaveFile myScript = (SaveFile)target;
+        if (GUILayout.Button("Save"))
+        {
+            myScript.Save();
+        }
+    }
+
+}
+#endif
