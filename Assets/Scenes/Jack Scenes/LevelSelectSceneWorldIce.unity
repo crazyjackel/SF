@@ -1535,7 +1535,7 @@ ParticleSystemRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 12
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -21138,7 +21138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147838, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.35
+      value: -4.94
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147838, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_LocalPosition.y
@@ -25146,7 +25146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_save: {fileID: 11400000, guid: 2aa1266cdd5d2aa40b8d26ed073f1a9f, type: 2}
   CageCompleteSprite: {fileID: 21300000, guid: 88928e1a482a9f946981fd1e39094ebd, type: 3}
-  spawnPrefab: {fileID: 0}
+  spawnPrefab: {fileID: 4865060105899376722, guid: eb35f894500422440adda1d004b74925, type: 3}
   Cages: []
 --- !u!1001 &1926940179
 PrefabInstance:
@@ -25909,11 +25909,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147838, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.85
+      value: 0.71
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147838, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.09
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 9097051330580147838, guid: 054d036ce98d8dc44a0885425022fd14, type: 3}
       propertyPath: m_LocalPosition.z
