@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5eceea8d09a109948952a88cf074f973, type: 3}
   m_Name: Save
   m_EditorClassIdentifier: 
+  loadOnStartup: 1
   constants: {fileID: 11400000, guid: face6524195191642b688dde734ecfd9, type: 2}
   m_save:
     resetOnPlay: 0
     m_levelsCompleted:
-      _serializedValues: []
+      _serializedValues:
+      - value: desert_1
+        isDuplicate: 0
+        index: 0
+      - value: jungle_1
+        isDuplicate: 0
+        index: 1
+      - value: swamp_1
+        isDuplicate: 0
+        index: 2
