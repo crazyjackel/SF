@@ -17,13 +17,4 @@ MonoBehaviour:
   m_save:
     resetOnPlay: 0
     m_levelsCompleted:
-      _serializedValues:
-      - value: desert_1
-        isDuplicate: 0
-        index: 0
-      - value: jungle_1
-        isDuplicate: 0
-        index: 1
-      - value: swamp_1
-        isDuplicate: 0
-        index: 2
+      _serializedValues: []
