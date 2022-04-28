@@ -18,10 +18,13 @@ public class WorldSelectViewModel : ViewModel<WorldSelectViewModel>
     private string m_previousWorld;
     [SerializeField]
     private string m_nextWorld;
+    [SerializeField]
+    private string m_mainWorld;
 
 
     public ReactiveCommand<ClickEvent> OnClickNext;
     public ReactiveCommand<ClickEvent> OnClickPrevious;
+    public ReactiveCommand<ClickEvent> OnClickBack;
 
     public override void OnInitialization()
     {
@@ -43,6 +46,19 @@ public class WorldSelectViewModel : ViewModel<WorldSelectViewModel>
             try
             {
                 SceneManager.LoadScene(m_previousWorld, LoadSceneMode.Single);
+            }
+            catch (Exception)
+            {
+
+            }
+        });
+
+        OnClickBack = new ReactiveCommand<ClickEvent>(Observable.Return(m_mainWorld != null && m_mainWorld != ""));
+        OnClickBack.Subscribe(x =>
+        {
+            try
+            {
+                SceneManager.LoadScene(m_mainWorld, LoadSceneMode.Single);
             }
             catch (Exception)
             {

@@ -11,8 +11,10 @@ public class WorldSelectView : View<WorldSelectViewModel>
     {
         Button next = Root.Q<Button>("NextButton");
         Button previous = Root.Q<Button>("PreviousButton");
+        Button back = Root.Q<Button>("BackButton");
 
         next.BindClick(viewModel.OnClickNext);
         previous.BindClick(viewModel.OnClickPrevious);
+        back.BindCallback(viewModel.OnClickBack);
     }
 }
